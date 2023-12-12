@@ -1,0 +1,34 @@
+
+Product Backlog:
+
+1. User Account Management:
+   - As a user, I want to create a new account.
+   - As a user, I want to log in to my account.
+   - As a user, I want to reset my password.
+
+2. Course Information:
+   - As a student, I want to view a list of available courses.
+   - As a student, I want to see detailed information about a specific course.
+   - As a student, I want to join a course.
+   - As a student, I want to drop a course.
+
+3. Feedback and Rating:
+   - As a student, I want to leave feedback for a course.
+   - As a student, I want to rate a course on a scale of 1 to 5.
+   - As a student, I want to view feedback for a course.
+   - As a student, I want to see the average rating for a course.
+
+4. Course Schedule:
+   - As a student, I want to view the schedule of courses.
+   - As a student, I want to see the location of the lecture hall for a course.
+
+5. Top-Rated Courses:
+   - As a student, I want to view the top 8 rated courses.
+
+6. Feedback Management:
+   - As a student, I want to edit my feedback for a course.
+   - As a student, I want to delete my feedback for a course.
+
+7. System Cleanup:
+   - As the system, I want to automatically remove feedback older than 1 year.
+
