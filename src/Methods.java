@@ -1,3 +1,4 @@
+package src;
 public interface Methods {
     public void tableCourse(); //u implementua
     public void enrollStudent();   //u implementua

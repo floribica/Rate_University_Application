@@ -1,3 +1,4 @@
+package src;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,8 +39,7 @@ public class CourseService {
         course.setCapacity(course.getCapacity() - 1);
         return true;
     }
-        return false; // Enrollment failed due to full capacity
-}
+
     private int registeredStudents;
 
     public int getRegisteredStudents() {

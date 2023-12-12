@@ -1,11 +1,12 @@
+package src;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
 class Course {
-    private String author;
-    private String courseName;
+    private  String author;
+    private  String courseName;
     private int capacity;
     private Date startDate;
     private Date endDate;
