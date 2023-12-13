@@ -9,14 +9,46 @@ public class MainApplication implements Methods {
     private static List<Student> studentList = new ArrayList<Student>();
     private int nr_Studenteve;
 
-    @Override
-    public void tableCourse() {
-        // Provide implementation for the tableCourse method
-        System.out.println("Implementation for tableCourse method");
-    }
     public static void main(String[] args) {
         MainApplication APP = new MainApplication();
+        int zgjedhja = 0;
+        Scanner input = new Scanner(System.in);
+        int i = APP.Lexo_Studentet();  // ben leximin nga file i studenteve dhe kthen numrin e studenteve ne file
+
+        APP.setNumriStudenteve(i);
+        //System.out.println("Studentet: "+APP.nr_Studenteve);
+        String emri;
+        String Id;
+        do {
+            //shfaq menune
+            APP.Menu();
+
+            zgjedhja = input.nextInt();
+            //Zgjedhja e opsioneve te menuse nga perdoruesi
+            switch (zgjedhja) {
+
+                case 1:
+                    APP.Shto_Student();
+                    break;
+                case 2:                //ruan shoferet ne nje file
+                    APP.ruaj_Studentet();
+                    break;
+                case 3:
+                    //shto kursin
+
+                    break;
+                case 4:
+                    //ruaj kursin
+                    break;
+                default:
+                    System.out.println("\nInput i gabuar. Provo perseri !\n\n");
+                    break;
+            }
+        } while (zgjedhja != 0);
     }
+
+
+
 
     @SuppressWarnings("resource")
     @Override
@@ -52,7 +84,14 @@ public class MainApplication implements Methods {
             studentList.add(student);
             this.nr_Studenteve += 1;
             ruaj_Studentet();
+            System.out.println(studentList);
         }
+    }
+    @Override
+    public void Shto_Kurs(Course course) {
+
+        Kurset.add(course);
+        ruaj_Kurset();            ////////////////////////////////DUHET IMPLEMENTUAR///////////////////
     }
 
     @Override
@@ -108,7 +147,28 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
     }
-
+    public int getNumriShofereve() {
+        //	System.out.println("nr studenteve "+nr_Studenteve);
+        return nr_Studenteve;
+    }
+    public void setNumriStudenteve(int nr) {
+        this.nr_Studenteve=nr;
+    }
+    public List<Student> getStudentet(){
+        return this.studentList;
+    }
+    @Override
+    public void Menu() {
+        System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
+                + "1 --> Shto nje student\n"
+                + "2 --> Ruaj Student \n"
+                + "3 -->  Shto Kursin\n"
+                + "4 -->  Ruaj Kursin\n"
+                + "5 -->  \n"
+                + "6 --> \n"
+                + "0 --> Dil\n\n"
+                + "Zgjedhja: ");
+    }
     @Override
     public void empty() {
         File file = new File("Studentet.txt");
@@ -121,4 +181,10 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
     }
+    @Override
+    public void tableCourse() {
+        // Provide implementation for the tableCourse method
+        System.out.println("Implementation for tableCourse method");
+    }
+
 }

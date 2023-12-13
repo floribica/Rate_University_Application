@@ -1,11 +1,13 @@
 package src;
 public interface Methods {
-    void tableCourse();
+    void tableCourse();    //duhet implementuar
+    void Menu();        //duhet implementuar
     void Shto_Student();   //u implementua
      //void dropCourse();
-    int Lexo_Studentet();
-    void ruaj_Studentet();
-    void empty();
+     void Shto_Kurs(Course course); // duhet implementuar
+    int Lexo_Studentet();  //u implementua
+    void ruaj_Studentet();   //u implementua
+    void empty();          // u implementua
    // public void detailCourse(String comments,String author,int date,String location,int Students_Id);
 
 }

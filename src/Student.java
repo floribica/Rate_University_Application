@@ -1,5 +1,6 @@
 package src;
-public class Student extends StudentAbstract {
+import java.io.Serializable;
+public class Student extends StudentAbstract implements Serializable {
     private String studentId;
     private String studentName;
 
