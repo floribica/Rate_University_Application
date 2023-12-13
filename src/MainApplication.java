@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 
 public class MainApplication implements Methods {
     private static List<Student> studentList = new ArrayList<Student>();
+    private static List<Course> Kurset = new ArrayList<Course>();
     private int nr_Studenteve;
 
     public static void main(String[] args) {
@@ -36,9 +40,51 @@ public class MainApplication implements Methods {
                 case 3:
                     //shto kursin
 
+                    Scanner scan = new Scanner(System.in);
+                    String courseName;
+                    Date date;
+                    String[] kurset = new String[10];
+
+                    System.out.print("\nJepni Emrin e Kursit: ");
+                    courseName = scan.nextLine();
+
+                    System.out.print("\nJepni Autorin e Kursit: ");
+                    String author = scan.nextLine();
+
+                    System.out.print("\nJepni Kapacitetin e Kursit: ");
+                    int capacity = scan.nextInt();
+
+                    System.out.print("\nJepni Fillimin e Dates se Kursit: (YY-MM-DD) ");
+                    SimpleDateFormat dateForma = new SimpleDateFormat("yyyy-MM-dd");
+                    String dateString=scan.nextLine();
+                    Date date1 = null;
+                    try {
+                        date1 = dateForma.parse(dateString);
+                    } catch (ParseException e) {
+                        System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+
+                    }
+
+                    System.out.print("\nJepni Fundin e Dates se Kursit:(YY-MM-DD) ");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    String dateSt=scan.nextLine();
+                    Date date2 = null;
+                    try {
+                        date2 = dateFormat.parse(dateSt);
+                    } catch (ParseException e) {
+                        System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+
+                    }
+
+
+                    Course course = new Course(courseName,author,date1,date2,capacity,kurset);
+                    APP.Shto_Kurs(course);						//shton nje gare ne liste
+                    System.out.println("\n\tKursi u shtua me Sukses!\n\n");
                     break;
+
                 case 4:
                     //ruaj kursin
+
                     break;
                 default:
                     System.out.println("\nInput i gabuar. Provo perseri !\n\n");
@@ -94,6 +140,7 @@ public class MainApplication implements Methods {
         ruaj_Kurset();            ////////////////////////////////DUHET IMPLEMENTUAR///////////////////
     }
 
+
     @Override
     public int Lexo_Studentet() {
         boolean cont = true;
@@ -123,6 +170,29 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
         return i;
+    }
+    @Override
+    public void ruaj_Kurset() {
+        emptyKurset();
+        try {
+            FileOutputStream ruaj = new FileOutputStream("Kurset.txt", true);
+            try {
+                ObjectOutputStream ruajKurs = new ObjectOutputStream(ruaj);
+                for (Object o : Kurset){
+                    try {
+                        ruajKurs.writeObject(o);
+
+                    } catch (NotSerializableException e) {
+                        System.out.println("An object was not serializable, it has not been saved.");
+                        e.printStackTrace();
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -185,6 +255,19 @@ public class MainApplication implements Methods {
     public void tableCourse() {
         // Provide implementation for the tableCourse method
         System.out.println("Implementation for tableCourse method");
+    }
+    public void emptyKurset() {
+        File file = new File("Kurset.txt");
+        try {
+            PrintWriter writer = new PrintWriter(file);
+            writer.print("");
+            writer.flush();
+            writer.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }

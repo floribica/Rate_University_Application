@@ -2,6 +2,7 @@ package src;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.Serializable;
+import java.util.Arrays;
 
 class Course implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -11,26 +12,26 @@ class Course implements Serializable {
     private Date startDate;
     private Date endDate;
 
-    private String[] Kurset = new String[10];
+    private String[] kurset = new String[10];
 
     Course() {
 
     }
-    public Course(String courseName,String  author,  Date startDate,Date endDate,int capacity, String[] Kurset) {
+    public Course(String courseName,String  author,  Date startDate,Date endDate,int capacity, String[] kurset) {
         super();
         this.courseName =courseName ;
         this.author =author ;
         this.startDate=startDate ;
         this.endDate=endDate;
         this.capacity=capacity;
-        this.Kurset=Kurset;
+        this.kurset=kurset;
 
     }
-    public String[] Kurset() {
-        return Kurset;
+    public String[] kurset() {
+        return kurset;
     }
-    public void setKurset(String[] Kurset) {
-        this.Kurset = Kurset;
+    public void setKurset(String[] kurset) {
+        this.kurset = kurset;
     }
 
     public String getAuthor() {
