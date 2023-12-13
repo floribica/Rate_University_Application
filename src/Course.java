@@ -1,22 +1,37 @@
 package src;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.io.Serializable;
+import java.util.Arrays;
 
-class Course {
+class Course implements Serializable {
+    private static final long serialVersionUID = 1L;
     private  String author;
     private  String courseName;
     private int capacity;
     private Date startDate;
     private Date endDate;
 
-    public Course(String author, String courseName, int capacity, Date startDate, Date endDate) {
-        this.author = author;
-        this.courseName = courseName;
-        this.capacity = capacity;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    private String[] kurset = new String[10];
+
+    Course() {
+
+    }
+    public Course(String courseName,String  author,  Date startDate,Date endDate,int capacity, String[] kurset) {
+        super();
+        this.courseName =courseName ;
+        this.author =author ;
+        this.startDate=startDate ;
+        this.endDate=endDate;
+        this.capacity=capacity;
+        this.kurset=kurset;
+
+    }
+    public String[] kurset() {
+        return kurset;
+    }
+    public void setKurset(String[] kurset) {
+        this.kurset = kurset;
     }
 
     public String getAuthor() {
@@ -38,10 +53,23 @@ class Course {
     public Date getEndDate() {
         return endDate;
     }
-
+    public void setAuthor(String author){
+        this.author=author;
+    }
+    public void setCourseName(String courseName){
+        this.courseName=courseName;
+    }
+    public void setStartDate(Date startDate){
+        this.startDate=startDate;
+    }
+    public void setEndDate(Date endDate){
+        this.endDate=endDate;
+    }
     public void setCapacity(int i) {
         this.capacity=i;
     }
+
+
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

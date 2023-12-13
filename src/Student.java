@@ -1,5 +1,6 @@
 package src;
-public class Student extends StudentAbstract {
+import java.io.Serializable;
+public class Student extends StudentAbstract implements Serializable {
     private String studentId;
     private String studentName;
 
@@ -17,7 +18,7 @@ public class Student extends StudentAbstract {
         return studentId;
     }
     public void setStudentId(String Id){
-        this.studentId=studentId;
+        this.studentId=Id;
     }
     public String getStudentName(){
         return studentName;
