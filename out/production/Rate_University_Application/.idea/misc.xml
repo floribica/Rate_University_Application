@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="IntelliJ IDEA IU-223.8214.52" project-jdk-type="IDEA JDK">
+>>>>>>> origin/main
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
