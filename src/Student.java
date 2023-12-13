@@ -18,7 +18,7 @@ public class Student extends StudentAbstract implements Serializable {
         return studentId;
     }
     public void setStudentId(String Id){
-        this.studentId=studentId;
+        this.studentId=Id;
     }
     public String getStudentName(){
         return studentName;

@@ -12,13 +12,13 @@ public class MainApplication implements Methods {
     private static List<Student> studentList = new ArrayList<Student>();
     private static List<Course> Kurset = new ArrayList<Course>();
     private int nr_Studenteve;
-
+    private int nr_Kurseve;
     public static void main(String[] args) {
         MainApplication APP = new MainApplication();
         int zgjedhja = 0;
         Scanner input = new Scanner(System.in);
         int i = APP.Lexo_Studentet();  // ben leximin nga file i studenteve dhe kthen numrin e studenteve ne file
-
+        int j=APP.lexo_Kurset();
         APP.setNumriStudenteve(i);
         //System.out.println("Studentet: "+APP.nr_Studenteve);
         String emri;
@@ -32,10 +32,16 @@ public class MainApplication implements Methods {
             switch (zgjedhja) {
 
                 case 1:
+                    //ruan studentet ne nje file dhe shton nje student
                     APP.Shto_Student();
                     break;
-                case 2:                //ruan shoferet ne nje file
-                    APP.ruaj_Studentet();
+                case 2:
+                    for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+                        Student obj= iterator.next();
+                            System.out.print("\nEmri:\t\t\t"+obj.getStudentName());
+                            System.out.print("\nID e Studentit:\t\t"+obj.getStudentId());
+                        }
+
                     break;
                 case 3:
                     //shto kursin
@@ -45,15 +51,16 @@ public class MainApplication implements Methods {
                     Date date;
                     String[] kurset = new String[10];
 
-                    System.out.print("\nJepni Emrin e Kursit: ");
+                    System.out.print("\nJepni Emrin e Kursit:\n\n ");
                     courseName = scan.nextLine();
 
-                    System.out.print("\nJepni Autorin e Kursit: ");
+                    System.out.print("\nJepni Autorin e Kursit:\n\n ");
                     String author = scan.nextLine();
 
-                    System.out.print("\nJepni Kapacitetin e Kursit: ");
+                    System.out.print("\nJepni Kapacitetin e Kursit: \n\n");
                     int capacity = scan.nextInt();
 
+                    scan.nextLine();
                     System.out.print("\nJepni Fillimin e Dates se Kursit: (YY-MM-DD) ");
                     SimpleDateFormat dateForma = new SimpleDateFormat("yyyy-MM-dd");
                     String dateString=scan.nextLine();
@@ -80,11 +87,21 @@ public class MainApplication implements Methods {
                     Course course = new Course(courseName,author,date1,date2,capacity,kurset);
                     APP.Shto_Kurs(course);						//shton nje gare ne liste
                     System.out.println("\n\tKursi u shtua me Sukses!\n\n");
+
                     break;
 
                 case 4:
-                    //ruaj kursin
+                    //fshin kursin
 
+                    System.out.print("\nJepni emrin e kursit qe doni te fshini: ");
+                    emri = input.next();
+                    j= APP.dropCourse(emri,j);				//fshin shoferin me emrin e dhene nga perdoruesi nese ekziston dhe ull me nje nr e shofereve
+                    break;
+
+                case 5:
+                   APP.tableCourse();
+                //FR2: Search for available courses: A student can see all courses. He is able to join a course. He can also drop a
+                    //course.
                     break;
                 default:
                     System.out.println("\nInput i gabuar. Provo perseri !\n\n");
@@ -97,6 +114,7 @@ public class MainApplication implements Methods {
 
 
     @SuppressWarnings("resource")
+
     @Override
     public void Shto_Student() {
         Scanner scan = new Scanner(System.in);
@@ -133,11 +151,39 @@ public class MainApplication implements Methods {
             System.out.println(studentList);
         }
     }
+
+
+    @Override
+    public int dropCourse(String emri, int nrKurseve) {
+        boolean isCourse = false;
+        for (Iterator<Course> iterator = Kurset.iterator(); iterator.hasNext();) {
+            Course obj= iterator.next();
+            if (obj.getCourseName().equals(emri)) {
+                isCourse =  true;
+            }
+        }
+
+        if(isCourse) {
+            for (Iterator<Course> iterator = Kurset.iterator(); iterator.hasNext();) {
+                Course obj= iterator.next();
+                if (obj.getCourseName().equals(emri)) {
+                    iterator.remove();
+                }
+            }
+            System.out.println("\n\tKursi "+emri+" u fshi nga lista!!\n\n");
+            nr_Kurseve--;
+            ruaj_Kurset();
+        }
+        else if(!isCourse)
+            System.err.println("\n\tNuk ekziston asnje Kurs me emrin "+emri+"!\n\n");
+        return nrKurseve;
+    }
     @Override
     public void Shto_Kurs(Course course) {
 
         Kurset.add(course);
-        ruaj_Kurset();            ////////////////////////////////DUHET IMPLEMENTUAR///////////////////
+        ruaj_Kurset();
+        this.nr_Kurseve += 1;
     }
 
 
@@ -231,10 +277,10 @@ public class MainApplication implements Methods {
     public void Menu() {
         System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
                 + "1 --> Shto nje student\n"
-                + "2 --> Ruaj Student \n"
+                + "2 --> Shfaq Studentet\n"
                 + "3 -->  Shto Kursin\n"
-                + "4 -->  Ruaj Kursin\n"
-                + "5 -->  \n"
+                + "4 -->  Fshi nje Kurs \n"
+                + "5 -->  Shfaq Kurset\n"
                 + "6 --> \n"
                 + "0 --> Dil\n\n"
                 + "Zgjedhja: ");
@@ -252,9 +298,47 @@ public class MainApplication implements Methods {
         }
     }
     @Override
+    public int lexo_Kurset() {
+        boolean cont = true;
+        int j = 0;
+        try {
+            ObjectInputStream lexo = new ObjectInputStream(new FileInputStream("Kurset.txt"));
+            while (cont) {
+                Object obj = null;
+                try {
+                    obj = lexo.readObject();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (EOFException e) {
+                    break;
+                }
+
+                if (obj != null) {
+                    Kurset.add((Course) obj);
+                    j++;
+                } else {
+                    cont = false;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return j;
+    }
+    @Override
     public void tableCourse() {
         // Provide implementation for the tableCourse method
         System.out.println("Implementation for tableCourse method");
+        for (Iterator<Course> iterator = Kurset.iterator(); iterator.hasNext();) {
+            Course obj= iterator.next();
+            System.out.print("\nTitulli i Kursit:\t\t\t"+obj.getCourseName());
+            System.out.print("\nAutori i Kursit:\t\t"+obj.getAuthor());
+            System.out.print("\nKapaciteti i Kursit:\t\t"+obj.getCapacity());
+            System.out.print("\nFillimi i Kursit:\t\t"+obj.getStartDate());
+            System.out.print("\nFundi i Kursit:\t\t"+obj.getEndDate());
+        }
     }
     public void emptyKurset() {
         File file = new File("Kurset.txt");
