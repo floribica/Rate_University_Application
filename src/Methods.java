@@ -1,8 +1,11 @@
 package src;
 public interface Methods {
-    public void tableCourse(); //u implementua
-    public void enrollStudent();   //u implementua
-    public void dropCourse();    //
-    public void detailCourse(String comments,String author,int date,String location,int Students_Id);
+    void tableCourse();
+    void Shto_Student();   //u implementua
+     //void dropCourse();
+    int Lexo_Studentet();
+    void ruaj_Studentet();
+    void empty();
+   // public void detailCourse(String comments,String author,int date,String location,int Students_Id);
 
 }
