@@ -1,5 +1,7 @@
 package main;
 
+import src.Student;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -153,6 +155,31 @@ public class login extends javax.swing.JFrame {
         jButton1.setText("Login");
 
         jButton2.setText("Signin");
+
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            // When the user clicks the login button check if the username is correct and encrypt the password and check if it is correct
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String username = jTextField1.getText();
+                String password = jTextField2.getText();
+
+                validation val = new validation();
+                password = val.encryptPassword(password);
+
+                User user = UserFileReader.readUserFromFile(username, password);
+                if (user != null) {
+                    JFrame frame = new JFrame();
+                    dispose();
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setVisible(true);
+                    frame.setSize(300, 300);
+                    frame.setLocationRelativeTo(null);
+                    frame.setTitle(user.getFirstName() + " " + user.getLastName());
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
