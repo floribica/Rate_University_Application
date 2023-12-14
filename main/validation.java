@@ -38,7 +38,14 @@ public class validation {
     public static boolean confirmPassword(String password, String confirmPassword) {
         return password.equals(confirmPassword);
     }
-    
+    // encrypts the password
+    public static String encryptPassword(String password) {
+        String encryptedPassword = "";
+        for (int i = 0; i < password.length(); i++) {
+            encryptedPassword += (char) (password.charAt(i) + 1);
+        }
+        return encryptedPassword;
+    }
 
 
 }

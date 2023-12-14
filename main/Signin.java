@@ -236,6 +236,10 @@ public class Signin extends javax.swing.JFrame {
             return;
         }
 
+        // Encrypt password
+        password = validation.encryptPassword(password);
+        confirmPassword = validation.encryptPassword(confirmPassword);
+
         // Confirm password
         boolean isConfirmedPassword = validation.confirmPassword(password, confirmPassword);
         if (!isConfirmedPassword) {
@@ -251,6 +255,9 @@ public class Signin extends javax.swing.JFrame {
         } else {
             id = 02;
         }
+        JOptionPane.showMessageDialog(this, "Rregistrimi u krye me sukses.");
+
+
 
 
         // Create a User object
