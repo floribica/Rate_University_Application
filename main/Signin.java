@@ -229,23 +229,8 @@ public class Signin extends javax.swing.JFrame {
         String confirmPassword = jTextField5.getText();
         int id ;
 
-        // Validate password
-        boolean isValidPassword = validation.validatePassword(password);
-        if (!isValidPassword) {
-            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
-            return;
-        }
-
-        // Encrypt password
-        password = validation.encryptPassword(password);
-        confirmPassword = validation.encryptPassword(confirmPassword);
-
-        // Confirm password
-        boolean isConfirmedPassword = validation.confirmPassword(password, confirmPassword);
-        if (!isConfirmedPassword) {
-            JOptionPane.showMessageDialog(this, "Passwords do not match.");
-            return;
-        }
+        checkValidation checkValidation = new checkValidation();
+        checkValidation.checkValidation(password,confirmPassword);
 
         // Determine if the user is a student or a course based on radio button selection
         boolean isStudent = jRadioButton1.isSelected();
@@ -256,10 +241,6 @@ public class Signin extends javax.swing.JFrame {
             id = 02;
         }
         JOptionPane.showMessageDialog(this, "Rregistrimi u krye me sukses.");
-
-
-
-
         // Create a User object
         User user = new User(firstName, lastName, username, password, id);
 
