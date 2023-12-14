@@ -46,6 +46,52 @@ public class validation {
         }
         return encryptedPassword;
     }
+    //validates the name
+    public static boolean validateName(String name) {
+        // Check if name is at least 2 characters long
+        if (name.length() < 2) {
+            return false;
+        }
 
+        // Check if name contains only letters
+        boolean hasOnlyLetters = name.matches("[A-Za-z ]*");
+        if (!hasOnlyLetters) {
+            return false;
+        }
+
+        return true;
+    }
+
+    //validates the last name
+    public static boolean validateLastName(String lastName) {
+        // Check if name is at least 2 characters long
+        if (lastName.length() < 2) {
+            return false;
+        }
+
+        // Check if name contains only letters
+        boolean hasOnlyLetters = lastName.matches("[A-Za-z ]*");
+        if (!hasOnlyLetters) {
+            return false;
+        }
+
+        return true;
+    }
+
+    //validates the username
+    public static boolean validateUsername(String username) {
+        // Check if username is at least 5 characters long
+        if (username.length() < 5) {
+            return false;
+        }
+
+        // Check if username contains only letters and numbers
+        boolean hasOnlyLettersAndNumbers = username.matches("[A-Za-z0-9]*");
+        if (!hasOnlyLettersAndNumbers) {
+            return false;
+        }
+
+        return true;
+    }
 
 }

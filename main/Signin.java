@@ -6,6 +6,7 @@ package main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  *
@@ -209,18 +210,19 @@ public class Signin extends javax.swing.JFrame {
 
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    jButton1ActionPerformed(evt);
+                }catch (IOException e){
+                    throw new RuntimeException(e);
+                }
+                }
 
-                jButton1ActionPerformed(evt);
 
-            }
         });
-
-
-
         pack();
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         // Get user input from text fields
         String firstName = jTextField1.getText();
         String lastName = jTextField2.getText();
@@ -230,7 +232,7 @@ public class Signin extends javax.swing.JFrame {
         int id ;
 
         checkValidation checkValidation = new checkValidation();
-        checkValidation.checkValidation(password,confirmPassword);
+        checkValidation.checkValidation(firstName, lastName, username, password,confirmPassword);
 
         // Determine if the user is a student or a course based on radio button selection
         boolean isStudent = jRadioButton1.isSelected();
@@ -241,9 +243,15 @@ public class Signin extends javax.swing.JFrame {
             id = 02;
         }
         JOptionPane.showMessageDialog(this, "Rregistrimi u krye me sukses.");
+
+        password = validation.encryptPassword(password);
+
         // Create a User object
         User user = new User(firstName, lastName, username, password, id);
 
+        //Write on file
+        UserFileWriter userFileWriter = new UserFileWriter();
+        userFileWriter.writeUserToFile(user);
         // Open login form
         login login = new login();
         login.setVisible(true);
