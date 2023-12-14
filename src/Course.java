@@ -2,7 +2,6 @@ package src;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.Serializable;
-import java.util.Arrays;
 
 class Course implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -11,19 +10,23 @@ class Course implements Serializable {
     private int capacity;
     private Date startDate;
     private Date endDate;
+    private String courseDescription;
+    private String lectureHallLocation;
 
-    private String[] kurset = new String[10];
+    private String[] kurset = new String[20];
 
     Course() {
 
     }
-    public Course(String courseName,String  author,  Date startDate,Date endDate,int capacity, String[] kurset) {
+    public Course(String courseName, String  author, Date startDate, Date endDate, int capacity,String courseDescription, String lectureHallLocation, String[] kurset) {
         super();
         this.courseName =courseName ;
         this.author =author ;
         this.startDate=startDate ;
         this.endDate=endDate;
         this.capacity=capacity;
+        this.courseDescription=courseDescription;
+        this.lectureHallLocation = lectureHallLocation;
         this.kurset=kurset;
 
     }
@@ -49,6 +52,10 @@ class Course implements Serializable {
     public Date getStartDate() {
         return startDate;
     }
+    public String getCourseDescription(){return courseDescription;}
+    public String getLectureHallLocation(){return lectureHallLocation;}
+    public void setCourseDescription(String courseDescription){this.courseDescription=courseDescription;}
+    public void setLectureHallLocation(String lectureHallLocation){this.lectureHallLocation=lectureHallLocation;}
 
     public Date getEndDate() {
         return endDate;
@@ -73,9 +80,9 @@ class Course implements Serializable {
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        return String.format("| %-10s | %-18s | %-8d | %-13s | %-13s |",
+        return String.format("| %-10s | %-18s | %-8d | %-13s | %-13s | | %-13s | | %-13s |",
                 getAuthor(), getCourseName(), getCapacity(),
-                dateFormat.format(getStartDate()), dateFormat.format(getEndDate()));
+                dateFormat.format(getStartDate()), dateFormat.format(getEndDate()),getCourseDescription(),getLectureHallLocation());
     }
 
 

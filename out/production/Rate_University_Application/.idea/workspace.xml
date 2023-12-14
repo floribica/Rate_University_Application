@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a964cbc9-8f35-44fd-b789-f65b6262cb11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CourseService.java" afterDir="false" />
+    <list default="true" id="46457623-e4bd-4d16-b0d2-fbdac53d14d1" name="Changes" comment="files &#10;Kurset.txt&#10;Studentet.txt">
+      <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,92 +23,141 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="01e5ed56-1f7d-4b1d-9de9-8d797c23f2da" />
+        <option name="url" value="https://github.com/floribica/Rate_University_Application.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2ZSEZkHjubPMusQQPHVnbic2gsq" />
+  <component name="ProjectId" id="2ZPpf3muAwouHQl7WSBgshRKYT2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="src" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.CourseGUI">
-    <configuration name="CourseGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.CourseGUI" />
-      <module name="Rate_University_Application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainApplication" />
-      <module name="Rate_University_Application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="src.MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.MainApplication" />
-      <module name="Rate_University_Application" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.CourseGUI" />
-        <item itemvalue="Application.src.MainApplication" />
-        <item itemvalue="Application.MainApplication" />
-      </list>
-    </recent_temporary>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a964cbc9-8f35-44fd-b789-f65b6262cb11" name="Changes" comment="" />
-      <created>1702407141083</created>
+      <changelist id="46457623-e4bd-4d16-b0d2-fbdac53d14d1" name="Changes" comment="" />
+      <created>1702333669494</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702407141083</updated>
-      <workItem from="1702407142800" duration="6557000" />
-      <workItem from="1702468440265" duration="2795000" />
-      <workItem from="1702489237760" duration="321000" />
+      <updated>1702333669494</updated>
+      <workItem from="1702333673898" duration="287000" />
+      <workItem from="1702333987538" duration="19908000" />
     </task>
+    <task id="LOCAL-00001" summary="add this line of code &quot;package src&quot;">
+      <created>1702410058823</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702410058823</updated>
+    </task>
+    <task id="LOCAL-00002" summary="creating an abstract class, StudentAbstract, and implementation of four methods in this Interface,">
+      <created>1702415140898</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702415140898</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add a menu() method to  MainApplication.java to show the user, the table of choices">
+      <created>1702480743631</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702480743631</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add a menu() method to  MainApplication.java to show the user, the table of choices">
+      <created>1702480860282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702480860282</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added Shto_Kurs()  method to Interface (Methods)">
+      <created>1702483169148</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702483169148</updated>
+    </task>
+    <task id="LOCAL-00006" summary="FR2: Search for available courses: A student can see all courses. He is able to join a course. He can also drop a&#10;                    //course.">
+      <created>1702500884602</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702500884603</updated>
+    </task>
+    <task id="LOCAL-00007" summary="FR2: Search for available courses: A student can see all courses. He is able to join a course. He can also drop a&#10;                    //course.">
+      <created>1702501426080</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702501426080</updated>
+    </task>
+    <task id="LOCAL-00008" summary="files &#10;Kurset.txt&#10;Studentet.txt">
+      <created>1702502354986</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702502354986</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add this line of code &quot;package src&quot;" />
+    <MESSAGE value="creating an abstract class, StudentAbstract, and implementation of four methods in this Interface," />
+    <MESSAGE value="add a menu() method to  MainApplication.java to show the user, the table of choices" />
+    <MESSAGE value="added Shto_Kurs()  method to Interface (Methods)" />
+    <MESSAGE value="FR2: Search for available courses: A student can see all courses. He is able to join a course. He can also drop a&#10;                    //course." />
+    <MESSAGE value="files &#10;Kurset.txt&#10;Studentet.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="files &#10;Kurset.txt&#10;Studentet.txt" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
