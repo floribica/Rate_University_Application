@@ -1,6 +1,6 @@
 package src;
 
-public abstract class StudentAbstract {
+public abstract class StudentAbstract  {
     abstract String getStudentName() ;
 
 

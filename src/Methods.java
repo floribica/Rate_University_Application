@@ -1,5 +1,5 @@
 package src;
-public interface Methods {
+public interface Methods  {
     void tableCourse();    //duhet implementuar
     void Menu();        //duhet implementuar
     void Shto_Student();   //u implementua

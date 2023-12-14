@@ -111,10 +111,11 @@ public class MainApplication implements Methods {
                 case 5:
                     boolean isEmpty = APP.isFileEmpty("Kurset.txt");
                     if (isEmpty) {
-                        System.out.println("Nuk ka kurs te rregjistruar!");
+                         System.out.println("Nuk ka kurs te rregjistruar!");
 
                         }
                     else {
+
                         APP.tableCourse();
 
                     }
