@@ -57,4 +57,10 @@ public class User {
         this.id = id;
     }
 
+
+    // toString method
+    @Override
+    public String toString() {
+        return "User{" + "firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password=" + password + ", id=" + id + '}';
+    }
 }
