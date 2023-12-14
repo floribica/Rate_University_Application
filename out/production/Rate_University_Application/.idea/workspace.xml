@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a964cbc9-8f35-44fd-b789-f65b6262cb11" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Studentet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Studentet.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/Studentet.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/Studentet.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/CourseGUI$CourseDetails.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/CourseGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/CourseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/src/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Methods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Methods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/src/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Rate_University_Application/src/StudentAbstract.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Rate_University_Application/src/StudentAbstract.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CourseGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CourseGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,30 +41,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/lenovo/Desktop/viti3semestri1/algoritmika",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module",
+      "directory"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CourseGUI">
+  <component name="RunManager" selected="Application.JoinedCoursesGUI">
     <configuration name="CourseGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.CourseGUI" />
+      <module name="Rate_University_Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JoinedCoursesGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.JoinedCoursesGUI" />
       <module name="Rate_University_Application" />
       <extension name="coverage">
         <pattern>
@@ -90,6 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JoinedCoursesGUI" />
         <item itemvalue="Application.CourseGUI" />
         <item itemvalue="Application.src.MainApplication" />
         <item itemvalue="Application.MainApplication" />
@@ -106,11 +135,65 @@
       <updated>1702407141083</updated>
       <workItem from="1702407142800" duration="6557000" />
       <workItem from="1702468440265" duration="2795000" />
-      <workItem from="1702489237760" duration="321000" />
+      <workItem from="1702489237760" duration="3364000" />
+      <workItem from="1702499008489" duration="498000" />
+      <workItem from="1702501145015" duration="2015000" />
+      <workItem from="1702503763358" duration="995000" />
+      <workItem from="1702506171823" duration="1380000" />
+      <workItem from="1702550028335" duration="3060000" />
+      <workItem from="1702555482757" duration="1235000" />
     </task>
+    <task id="LOCAL-00001" summary="courses class' first model display">
+      <created>1702492166674</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702492166674</updated>
+    </task>
+    <task id="LOCAL-00002" summary="courses class' first model display">
+      <created>1702492370955</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702492370955</updated>
+    </task>
+    <task id="LOCAL-00003" summary="read files">
+      <created>1702492515865</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702492515865</updated>
+    </task>
+    <task id="LOCAL-00004" summary="reorganized files">
+      <created>1702499067238</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702499067238</updated>
+    </task>
+    <task id="LOCAL-00005" summary="updating class CourseGUI">
+      <created>1702501984525</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702501984525</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="courses class' first model display" />
+    <MESSAGE value="read files" />
+    <MESSAGE value="reorganized files" />
+    <MESSAGE value="updating class CourseGUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="updating class CourseGUI" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Rate_University_Application$CourseGUI.ic" NAME="CourseGUI Coverage Results" MODIFIED="1702503830764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>src.*</FILTER>
+    </SUITE>
   </component>
 </project>

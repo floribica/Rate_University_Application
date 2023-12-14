@@ -1,4 +1,5 @@
 package src;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -20,13 +21,28 @@ public class CourseGUI extends JFrame {
 
         JPanel mainPanel = new JPanel(new BorderLayout());
 
+        // Navigation Bar
+        JPanel navBarPanel = new JPanel();
+        navBarPanel.setBackground(Color.DARK_GRAY);
+        navBarPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
+
+        JButton homeButton = createNavBarButton("Home");
+        JButton calendarButton = createNavBarButton("Calendar");
+        JButton logoutButton = createNavBarButton("Log Out");
+
+        navBarPanel.add(homeButton);
+        navBarPanel.add(calendarButton);
+        navBarPanel.add(logoutButton);
+
+        mainPanel.add(navBarPanel, BorderLayout.NORTH);
+
         // Header Panel
         JPanel headerPanel = new JPanel();
         JLabel headerLabel = new JLabel("Available Courses");
         headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
         headerPanel.add(headerLabel);
 
-        mainPanel.add(headerPanel, BorderLayout.NORTH);
+        mainPanel.add(headerPanel, BorderLayout.CENTER);
 
         JPanel coursePanel = new JPanel(new GridLayout(0, 2, 20, 20));
 
@@ -39,86 +55,82 @@ public class CourseGUI extends JFrame {
         }
 
         JScrollPane scrollPane = new JScrollPane(coursePanel);
-        mainPanel.add(scrollPane, BorderLayout.CENTER);
+        mainPanel.add(scrollPane, BorderLayout.SOUTH);
 
         add(mainPanel);
     }
 
-    private JPanel createCourseCard(String courseName, CourseDetails details) {
-        JPanel card = new JPanel();
-        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-        card.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        card.setBackground(new Color(255, 223, 186)); // Moccasin
-
-        // Add some padding
-        card.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-
-        JLabel nameLabel = new JLabel(courseName);
-        nameLabel.setFont(new Font("Arial", Font.BOLD, 16));
-        nameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        card.add(nameLabel);
-
-        JLabel authorLabel = new JLabel("Author: " + details.getAuthor());
-        JLabel capacityLabel = new JLabel("Capacity: " + details.getCapacity());
-        JLabel startDateLabel = new JLabel("Start Date: " + details.getStartDate());
-        JLabel endDateLabel = new JLabel("End Date: " + details.getEndDate());
-
-        // Center the information
-        authorLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        capacityLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        startDateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        endDateLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        card.add(authorLabel);
-        card.add(capacityLabel);
-        card.add(startDateLabel);
-        card.add(endDateLabel);
-
-        JButton joinButton = new JButton("Join Course");
-        JButton dropButton = new JButton("Drop Course");
-
-        joinButton.setBackground(new Color(50, 205, 50)); // Lime Green
-        dropButton.setBackground(new Color(255, 69, 0)); // Red-Orange
-
-        // Add some spacing between buttons and information
-        card.add(Box.createRigidArea(new Dimension(0, 10)));
-
-        // Disable Join button if already joined
-        if (joinedCoursesMap.get(courseName)) {
-            joinButton.setEnabled(false);
-        } else {
-            joinButton.addActionListener(e -> handleCourseAction("Joined", courseName, joinButton, dropButton));
-        }
-
-        // Disable Drop button if not joined
-        dropButton.setEnabled(joinedCoursesMap.get(courseName));
-        dropButton.addActionListener(e -> handleCourseAction("Dropped", courseName, joinButton, dropButton));
-
-        card.add(joinButton);
-        card.add(dropButton);
-
-        return card;
+    private JButton createNavBarButton(String text) {
+        JButton button = new JButton(text);
+        button.setForeground(Color.WHITE);
+        button.setBackground(Color.DARK_GRAY);
+        button.setFocusPainted(false);
+        button.addActionListener(e -> handleNavBarButtonClick(text));
+        return button;
     }
 
-    private void handleCourseAction(String action, String courseName, JButton joinButton, JButton dropButton) {
-        int response = JOptionPane.showConfirmDialog(this,
-                "Do you want to " + action.toLowerCase() + " the course: " + courseName + "?",
-                "Confirmation", JOptionPane.YES_NO_OPTION);
+    private void handleNavBarButtonClick(String buttonName) {
+        JOptionPane.showMessageDialog(this, "You clicked: " + buttonName);
+        // Implement navigation logic based on the button clicked
+    }
 
-        if (response == JOptionPane.YES_OPTION) {
-            if (action.equals("Joined")) {
-                joinedCoursesMap.put(courseName, true);
-                joinButton.setEnabled(false); // Disable Join button after joining
-            } else if (action.equals("Dropped")) {
-                joinedCoursesMap.put(courseName, false);
-                dropButton.setEnabled(false); // Disable Drop button after dropping
-            }
+    private JPanel createCourseCard(String courseName, CourseDetails details) {
+        JPanel courseCard = new JPanel(new BorderLayout());
+        courseCard.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 
-            JOptionPane.showMessageDialog(this, action + " course: " + courseName);
+        JLabel courseLabel = new JLabel(courseName);
+        courseLabel.setFont(new Font("Arial", Font.BOLD, 18));
+        courseCard.add(courseLabel, BorderLayout.NORTH);
+
+        JTextArea detailsArea = new JTextArea();
+        detailsArea.append("Author: " + details.getAuthor() + "\n");
+        detailsArea.append("Capacity: " + details.getCapacity() + "\n");
+        detailsArea.append("Start Date: " + details.getStartDate() + "\n");
+        detailsArea.append("End Date: " + details.getEndDate() + "\n");
+        detailsArea.setEditable(false);
+
+        JPanel buttonPanel = new JPanel();
+        JButton joinButton = new JButton("Join");
+        JButton dropButton = new JButton("Drop");
+
+        if (joinedCoursesMap.getOrDefault(courseName, false)) {
+            joinButton.setEnabled(false);
         }
+
+        joinButton.addActionListener(e -> handleJoinButton(courseName));
+        dropButton.addActionListener(e -> handleDropButton(courseName));
+
+        buttonPanel.add(joinButton);
+        buttonPanel.add(dropButton);
+
+        courseCard.add(detailsArea, BorderLayout.CENTER);
+        courseCard.add(buttonPanel, BorderLayout.SOUTH);
+
+        return courseCard;
+    }
+
+    private void handleJoinButton(String courseName) {
+        joinedCoursesMap.put(courseName, true);
+        JOptionPane.showMessageDialog(this, "Joined course: " + courseName);
+        refreshCoursePanel();
+    }
+
+    private void handleDropButton(String courseName) {
+        joinedCoursesMap.put(courseName, false);
+        JOptionPane.showMessageDialog(this, "Dropped course: " + courseName);
+        refreshCoursePanel();
+    }
+
+    private void refreshCoursePanel() {
+        // Refresh the course panel after joining or dropping a course
+        getContentPane().removeAll();
+        List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
+        initializeJoinedCoursesMap(courses);
+        createAndShowGUI(courses);
     }
 
     private void initializeCourseDetails() {
+        // Initialize course details map with sample data
         courseDetailsMap = new HashMap<>();
         courseDetailsMap.put("Computer Science", new CourseDetails("John Doe", 30, "2023-01-15", "2023-05-15"));
         courseDetailsMap.put("Physics", new CourseDetails("Jane Smith", 25, "2023-01-20", "2023-05-20"));
@@ -133,6 +145,12 @@ public class CourseGUI extends JFrame {
         }
     }
 
+    private static void createAndShowGUI(List<String> courses) {
+        CourseGUI courseGUI = new CourseGUI(courses);
+        courseGUI.setVisible(true);
+    }
+
+    // Inner class representing course details
     private static class CourseDetails {
         private String author;
         private int capacity;
@@ -166,10 +184,7 @@ public class CourseGUI extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
-
-            CourseGUI courseGUI = new CourseGUI(courses);
-            courseGUI.setVisible(true);
+            createAndShowGUI(courses);
         });
     }
 }
-
