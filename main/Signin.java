@@ -209,11 +209,9 @@ public class Signin extends javax.swing.JFrame {
 
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                //open login form
-                login login = new login();
-                login.setVisible(true);
-                dispose();
+
                 jButton1ActionPerformed(evt);
+
             }
         });
 
@@ -228,16 +226,35 @@ public class Signin extends javax.swing.JFrame {
         String lastName = jTextField2.getText();
         String username = jTextField3.getText();
         String password = jTextField4.getText();
-        int id = Integer.parseInt(jTextField5.getText());
+        String confirmPassword = jTextField5.getText();
+        int id ;
+
+        // Validate password
+        boolean isValidPassword = validation.validatePassword(password);
+        if (!isValidPassword) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+            return;
+        }
+
+        // Confirm password
+        boolean isConfirmedPassword = validation.confirmPassword(password, confirmPassword);
+        if (!isConfirmedPassword) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match.");
+            return;
+        }
 
         // Determine if the user is a student or a course based on radio button selection
         boolean isStudent = jRadioButton1.isSelected();
+        if (isStudent) {
+            id = 01;
+
+        } else {
+            id = 02;
+        }
+
 
         // Create a User object
         User user = new User(firstName, lastName, username, password, id);
-
-        // Write user information to the file
-        UserFileWriter.writeUserToFile(user, isStudent);
 
         // Open login form
         login login = new login();
