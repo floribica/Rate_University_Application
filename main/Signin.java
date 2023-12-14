@@ -230,9 +230,48 @@ public class Signin extends javax.swing.JFrame {
         String password = jTextField4.getText();
         String confirmPassword = jTextField5.getText();
         int id ;
+        // Validate password
+        boolean isValidPassword = validation.validatePassword(password);
+        if (!isValidPassword) {
+            JOptionPane.showMessageDialog(this, "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+            return;
+        }
 
-        checkValidation checkValidation = new checkValidation();
-        checkValidation.checkValidation(firstName, lastName, username, password,confirmPassword);
+
+        // Confirm password
+        boolean isConfirmedPassword = validation.confirmPassword(password, confirmPassword);
+        if (!isConfirmedPassword) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match.");
+            return;
+        }
+        // Validate name
+        boolean isValidName = validation.validateName(firstName);
+        if (!isValidName) {
+            JOptionPane.showMessageDialog(this, "Name must be at least 2 characters long and contain only letters.");
+            return;
+        }
+
+        // Validate last name
+        boolean isValidLastName = validation.validateLastName(lastName);
+        if (!isValidLastName) {
+            JOptionPane.showMessageDialog(this, "Last name must be at least 2 characters long and contain only letters.");
+            return;
+        }
+
+        // Validate username
+        boolean isValidUsername = validation.validateUsername(username);
+        if (!isValidUsername) {
+            JOptionPane.showMessageDialog(this, "Username must be at least 6 characters long and contain only letters and numbers.");
+            return;
+        }
+
+        // Check if username already exists
+        User user = UserFileReader.readUserFromFile(username);
+        if (user != null) {
+            JOptionPane.showMessageDialog(this, "Username already exists.");
+            return;
+        }
+
 
         // Determine if the user is a student or a course based on radio button selection
         boolean isStudent = jRadioButton1.isSelected();
@@ -247,11 +286,11 @@ public class Signin extends javax.swing.JFrame {
         password = validation.encryptPassword(password);
 
         // Create a User object
-        User user = new User(firstName, lastName, username, password, id);
+        User user1 = new User(firstName, lastName, username, password, id);
 
         //Write on file
         UserFileWriter userFileWriter = new UserFileWriter();
-        userFileWriter.writeUserToFile(user);
+        userFileWriter.writeUserToFile(user1);
         // Open login form
         login login = new login();
         login.setVisible(true);

@@ -1,5 +1,8 @@
 package main;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class validation {
 
     public static boolean validatePassword(String password) {
@@ -40,12 +43,33 @@ public class validation {
     }
     // encrypts the password
     public static String encryptPassword(String password) {
-        String encryptedPassword = "";
-        for (int i = 0; i < password.length(); i++) {
-            encryptedPassword += (char) (password.charAt(i) + 1);
+        try {
+            // Create MessageDigest instance for SHA-256
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            // Add password bytes to digest
+            md.update(password.getBytes());
+
+            // Get the hash's bytes
+            byte[] bytes = md.digest();
+
+            // Convert bytes to hexadecimal representation
+            StringBuilder stringBuilder = new StringBuilder();
+            for (byte b : bytes) {
+                stringBuilder.append(String.format("%02x", b));
+            }
+
+            return stringBuilder.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            // Handle the exception based on your application's needs
+            return null;
         }
-        return encryptedPassword;
     }
+
+
+
+
     //validates the name
     public static boolean validateName(String name) {
         // Check if name is at least 2 characters long
@@ -90,6 +114,9 @@ public class validation {
         if (!hasOnlyLettersAndNumbers) {
             return false;
         }
+
+        // Check if username is registered
+
 
         return true;
     }

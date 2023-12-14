@@ -11,9 +11,5 @@ public class UserFileWriter {
         writer.close();
     }
 
-
-    //toStrig method
-    public static String toString(User user) {
-        return "Name: "+user.getFirstName() +" LastName: "+user.getLastName() + " Username: " + user.getUsername() + " Password: " + user.getPassword() + " Id: " + user.getId();
-    }
 }
+
