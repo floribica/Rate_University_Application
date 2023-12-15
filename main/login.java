@@ -1,7 +1,5 @@
 package main;
 
-import src.Student;
-
 import javax.swing.*;
 import java.awt.*;
 
