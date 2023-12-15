@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d281ddf7-de16-4610-a1dc-38e85b35e73c" name="Changes" comment="write on file and validation">
-      <change beforePath="$PROJECT_DIR$/main/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.java" afterDir="false" />
-    </list>
+    <list default="true" id="d281ddf7-de16-4610-a1dc-38e85b35e73c" name="Changes" comment="version for login" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,6 +21,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -34,13 +32,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.test">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.main" />
       <module name="Rate_University_Application" />
@@ -54,8 +52,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.test" />
+      <module name="Rate_University_Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
@@ -90,7 +102,42 @@
       <option name="project" value="LOCAL" />
       <updated>1702555521768</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="another version for login">
+      <created>1702644179631</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702644179631</updated>
+    </task>
+    <task id="LOCAL-00005" summary="another version for login">
+      <created>1702644271647</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702644271647</updated>
+    </task>
+    <task id="LOCAL-00006" summary="another version for login">
+      <created>1702651987889</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702651987889</updated>
+    </task>
+    <task id="LOCAL-00007" summary="another version for login">
+      <created>1702652024788</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702652024788</updated>
+    </task>
+    <task id="LOCAL-00008" summary="version for login">
+      <created>1702652935098</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702652935098</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,21 +155,8 @@
     <MESSAGE value="encrypts password" />
     <MESSAGE value="add checkValidation class" />
     <MESSAGE value="write on file and validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="write on file and validation" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/main/login.java</url>
-          <line>28</line>
-          <properties class="main.login" method="setPanel3Image">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="another version for login" />
+    <MESSAGE value="version for login" />
+    <option name="LAST_COMMIT_MESSAGE" value="version for login" />
   </component>
 </project>
