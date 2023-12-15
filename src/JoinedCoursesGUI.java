@@ -6,18 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CourseGUI extends JFrame {
+public class JoinedCoursesGUI extends JFrame {
     private Map<String, CourseDetails> courseDetailsMap;
     private Map<String, Boolean> joinedCoursesMap;
 
-    public CourseGUI(List<String> courses) {
-        setTitle("University Course Registration");
+    public JoinedCoursesGUI(List<String> joinedCourses) {
+        setTitle("Your Joined Courses");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
 
         initializeCourseDetails();
-        initializeJoinedCoursesMap(courses);
+        initializeJoinedCoursesMap(joinedCourses);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
 
@@ -38,7 +38,7 @@ public class CourseGUI extends JFrame {
 
         // Header Panel
         JPanel headerPanel = new JPanel();
-        JLabel headerLabel = new JLabel("Available Courses");
+        JLabel headerLabel = new JLabel("Your Joined Courses");
         headerLabel.setFont(new Font("Arial", Font.BOLD, 24));
         headerPanel.add(headerLabel);
 
@@ -46,7 +46,7 @@ public class CourseGUI extends JFrame {
 
         JPanel coursePanel = new JPanel(new GridLayout(0, 2, 20, 20));
 
-        for (String course : courses) {
+        for (String course : joinedCourses) {
             CourseDetails details = courseDetailsMap.get(course);
             if (details != null) {
                 JPanel courseCard = createCourseCard(course, details);
@@ -89,44 +89,9 @@ public class CourseGUI extends JFrame {
         detailsArea.append("End Date: " + details.getEndDate() + "\n");
         detailsArea.setEditable(false);
 
-        JPanel buttonPanel = new JPanel();
-        JButton joinButton = new JButton("Join");
-        JButton dropButton = new JButton("Drop");
-
-        if (joinedCoursesMap.getOrDefault(courseName, false)) {
-            joinButton.setEnabled(false);
-        }
-
-        joinButton.addActionListener(e -> handleJoinButton(courseName));
-        dropButton.addActionListener(e -> handleDropButton(courseName));
-
-        buttonPanel.add(joinButton);
-        buttonPanel.add(dropButton);
-
         courseCard.add(detailsArea, BorderLayout.CENTER);
-        courseCard.add(buttonPanel, BorderLayout.SOUTH);
 
         return courseCard;
-    }
-
-    private void handleJoinButton(String courseName) {
-        joinedCoursesMap.put(courseName, true);
-        JOptionPane.showMessageDialog(this, "Joined course: " + courseName);
-        refreshCoursePanel();
-    }
-
-    private void handleDropButton(String courseName) {
-        joinedCoursesMap.put(courseName, false);
-        JOptionPane.showMessageDialog(this, "Dropped course: " + courseName);
-        refreshCoursePanel();
-    }
-
-    private void refreshCoursePanel() {
-        // Refresh the course panel after joining or dropping a course
-        getContentPane().removeAll();
-        List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
-        initializeJoinedCoursesMap(courses);
-        createAndShowGUI(courses);
     }
 
     private void initializeCourseDetails() {
@@ -138,19 +103,23 @@ public class CourseGUI extends JFrame {
         courseDetailsMap.put("History", new CourseDetails("Alice Brown", 22, "2023-02-01", "2023-06-01"));
     }
 
-    private void initializeJoinedCoursesMap(List<String> courses) {
+    private void initializeJoinedCoursesMap(List<String> joinedCourses) {
         joinedCoursesMap = new HashMap<>();
-        for (String course : courses) {
-            joinedCoursesMap.put(course, false);
+        for (String course : joinedCourses) {
+            joinedCoursesMap.put(course, true);
         }
     }
 
-    private static void createAndShowGUI(List<String> courses) {
-        CourseGUI courseGUI = new CourseGUI(courses);
-        courseGUI.setVisible(true);
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            List<String> joinedCourses = List.of("Computer Science", "Mathematics");
+            JoinedCoursesGUI joinedCoursesGUI = new JoinedCoursesGUI(joinedCourses);
+            joinedCoursesGUI.setVisible(true);
+
+            System.out.println("JoinedCoursesGUI created and set visible.");
+        });
     }
 
-    // Inner class representing course details
     private static class CourseDetails {
         private String author;
         private int capacity;
@@ -179,12 +148,5 @@ public class CourseGUI extends JFrame {
         public String getEndDate() {
             return endDate;
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
-            createAndShowGUI(courses);
-        });
     }
 }
