@@ -1,4 +1,4 @@
-package src;
+package main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,7 +44,7 @@ public class JoinedCoursesGUI extends JFrame {
 
         mainPanel.add(headerPanel, BorderLayout.CENTER);
 
-        JPanel coursePanel = new JPanel(new GridLayout(0, 2, 20, 20));
+        JPanel coursePanel = new JPanel(new GridLayout(4, 2, 20, 20));
 
         for (String course : joinedCourses) {
             CourseDetails details = courseDetailsMap.get(course);

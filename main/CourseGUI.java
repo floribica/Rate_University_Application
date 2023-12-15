@@ -44,7 +44,7 @@ public class CourseGUI extends JFrame {
 
         mainPanel.add(headerPanel, BorderLayout.CENTER);
 
-        JPanel coursePanel = new JPanel(new GridLayout(0, 2, 20, 20));
+        JPanel coursePanel = new JPanel(new GridLayout(4, 2, 20, 20));
 
         for (String course : courses) {
             CourseDetails details = courseDetailsMap.get(course);
@@ -145,12 +145,25 @@ public class CourseGUI extends JFrame {
         }
     }
 
-    private static void createAndShowGUI(List<String> courses) {
+    private void createAndShowGUI(List<String> courses) {
         CourseGUI courseGUI = new CourseGUI(courses);
         courseGUI.setVisible(true);
     }
 
-    // Inner class representing course details
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
+
+                CourseGUI courseGUI = new CourseGUI(courses);
+                courseGUI.setVisible(true);
+
+                System.out.println("GUI created and set visible.");
+            }
+        });
+    }
+
     private static class CourseDetails {
         private String author;
         private int capacity;
@@ -179,12 +192,5 @@ public class CourseGUI extends JFrame {
         public String getEndDate() {
             return endDate;
         }
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            List<String> courses = List.of("Computer Science", "Physics", "Mathematics", "History");
-            createAndShowGUI(courses);
-        });
     }
 }
