@@ -4,9 +4,12 @@ public interface Methods  {
     void Menu();        //duhet implementuar
     void Shto_Student();   //u implementua
      int dropCourse(String emri, int nrKurseve);
-     void Shto_Kurs(Course course); // duhet implementuar   //u implementua
+    void dropCourse(String courseName, Student student);
+    void Shto_Kurs(Course course); // duhet implementuar   //u implementua
      void ruaj_Kurset();
      int lexo_Kurset();
+     void increaseCapacity();
+     void decreaseCapacity();
     int Lexo_Studentet();  //u implementua
     void ruaj_Studentet();   //u implementua
     void empty();

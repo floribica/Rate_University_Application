@@ -79,8 +79,6 @@ class Course implements Serializable {
         this.capacity=i;
     }
 
-
-
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -90,5 +88,15 @@ class Course implements Serializable {
     }
 
 
+    public void decreaseCapacity() {
+        if (capacity > 0) {
+            capacity--;
+        }
+    }
+
+    public void increaseCapacity() {
+        // Implement logic to increase the capacity (if needed)
+        capacity++;
+    }
 }
 

@@ -17,10 +17,11 @@ public class MainApplication implements Methods {
     private static Map<String, List<Course>> courseRegistrations = new HashMap<>();
 
     private int nr_Studenteve;
-    private int nr_Kurseve;
-
+    //private int nr_Kurseve;
+    private int capacity;
     public static void main(String[] args) {
         MainApplication APP = new MainApplication();
+
         int zgjedhja = 0;
         Scanner input = new Scanner(System.in);
         int i = APP.Lexo_Studentet();  // ben leximin nga file i studenteve dhe kthen numrin e studenteve ne file
@@ -141,12 +142,12 @@ public class MainApplication implements Methods {
                         Course obj= iterator.next();
                         if (obj.getCourseName().equals(emri)) {
                             System.out.print("\nEmri:\t\t\t"+obj.getCourseName());
-                            System.out.print("\nMbiemri:\t\t"+obj.getAuthor());
-                            System.out.print("\nVenddodhja:\t\t"+obj.getCapacity());
-                            System.out.print("\nMosha:\t\t\t"+obj.getStartDate());
-                            System.out.print("\nEkipi:\t\t\t"+obj.getEndDate());
-                            System.out.print("\nVendi Pare:\t\t"+obj.getCourseDescription());
-                            System.out.print("\nVendi Dyte:\t\t"+obj.getLectureHallLocation());
+                            System.out.print("\nAutori:\t\t"+obj.getAuthor());
+                            System.out.print("\nKapaciteti:\t\t"+obj.getCapacity());
+                            System.out.print("\nData e Fillimit:\t\t\t"+obj.getStartDate());
+                            System.out.print("\nData e Perfundimit:\t\t\t"+obj.getEndDate());
+                            System.out.print("\nPershkrimi i Kursit :\t\t"+obj.getCourseDescription());
+                            System.out.print("\n Klasa ne te cilen zhvillohet leksioni:\t\t"+obj.getLectureHallLocation());
                             ndodhet = true;
                         }
                     }
@@ -230,6 +231,30 @@ public class MainApplication implements Methods {
 
                  break;
 
+                case 9:
+                    Scanner n=new Scanner(System.in);
+                    System.out.println("Jepni emrin e kursit ne te cilin doni te hiqni studentin!\n");
+                    courseName=n.next();
+                    System.out.println("Jepni Studentin(ID-e tij) te cilin doni te hiqni! \n");
+                    n.nextLine();
+                    studentName=n.nextLine();
+                    boolean Found = false;
+                    for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+                        Student obj2= iterator.next();
+                        if (obj2.getStudentName().equals(studentName)) {
+                            APP.dropCourse(courseName,obj2);
+                            Found = true;
+                            System.out.println("Studenti u c'rregjistrua nga kursi me sukses");
+                            break;
+                        }
+                    }
+                    if(!Found) {
+                        System.err.println("\n\tStudenti "+studentName+" nuk ndodhet ne Liste!\n");
+                    }
+
+
+                    break;
+
 
                 default:
                     System.out.println("\nInput i gabuar. Provo perseri !\n\n");
@@ -292,15 +317,23 @@ public class MainApplication implements Methods {
         if (courseRegistrations.containsKey(courseName)) {
             // If the course exists, add the student to the list of registered students for that course
             List<Course> courses = courseRegistrations.get(courseName);
-            courses.add(findCourse(courseName));
-            studentList.add(student);
-
-        } else {
-            // If the course doesn't exist, create a new entry with an empty list of courses
+           Course course=findCourse(courseName);
+            if (course.getCapacity() > 0) {
+                courses.add(course);
+                studentList.add(student);
+                course.decreaseCapacity();
+                System.out.println("Student registered for course: " + courseName);
+            } else if((course.getCapacity() == 0)) {
+                System.out.println("No available seats for course: " + courseName);
+            }
+             else {
+                System.out.println("Course not found: " + courseName);
+            }
+            /*// If the course doesn't exist, create a new entry with an empty list of courses
             List<Course> newCourseList = new ArrayList<>();
             newCourseList.add(findCourse(courseName)); // Assuming findCourse returns a Course object
             courseRegistrations.put(courseName, newCourseList);
-            studentList.add(student);
+            studentList.add(student);*/
         }
     }
 
@@ -315,7 +348,26 @@ public class MainApplication implements Methods {
         }
         return null;
     }
+ @Override
+ public void dropCourse(String courseName, Student student) {
+     // Check if the course exists in the registrations map
+     if (courseRegistrations.containsKey(courseName)) {
+         // If the course exists, remove the student from the list of registered students for that course
+         List<Course> courses = courseRegistrations.get(courseName);
+         Course course = findCourse(courseName);
 
+         if (courses.contains(course)) {
+             courses.remove(course);
+             studentList.remove(student);
+             course.increaseCapacity();
+             System.out.println("Student dropped from course: " + courseName);
+         } else {
+             System.out.println("Student not registered for course: " + courseName);
+         }
+     } else {
+         System.out.println("Course not found: " + courseName);
+     }
+ }
 
 
 
@@ -337,7 +389,7 @@ public class MainApplication implements Methods {
                 }
             }
             System.out.println("\n\tKursi " + emri + " u fshi nga lista!!\n\n");
-            nr_Kurseve--;
+            capacity--;
             ruaj_Kurset();
         } else if (!isCourse)
             System.err.println("\n\tNuk ekziston asnje Kurs me emrin " + emri + "!\n\n");
@@ -349,7 +401,7 @@ public class MainApplication implements Methods {
 
         Kurset.add(course);
         ruaj_Kurset();
-        this.nr_Kurseve += 1;
+        this.capacity += 1;
         for (Course cour : Kurset) {
             courseRegistrations.put(cour.getCourseName(), new ArrayList<>());
         }
@@ -452,12 +504,13 @@ public class MainApplication implements Methods {
         System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
                 + "1 --> Shto nje student\n"
                 + "2 --> Shfaq Studentet\n"
-                + "3 -->  Shto Kursin\n"
+                + "3 -->  Shto Kurs\n"
                 + "4 -->  Fshi nje Kurs \n"
                 + "5 -->  Shfaq Kurset\n"
                 + "6 --> Shfaq detajet e nje kursi\n"
                 + "7 --> Leave a Feedback\n"
                 + "8 --> Register a Student to Course\n"
+                + "9-->Drop Course \n"
                 + "0 --> Dil\n\n"
                 + "Zgjedhja: ");
     }
@@ -509,6 +562,19 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
         return j;
+    }
+
+
+    @Override
+    public void increaseCapacity() {
+        capacity++;
+    }
+
+    @Override
+    public void decreaseCapacity() {
+        if (capacity > 0) {
+            capacity--;
+        }
     }
 
     @Override
