@@ -1,0 +1,24 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_13_2023_10_03_PM_[Changes]" date="1702501438304" recycled="false" toDelete="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_13_2023_10_03_PM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/13/2023 10:03 PM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Rate_University_Application/src/MainApplication.class" />
+    <option name="AFTER_PATH" value="out/production/Rate_University_Application/src/MainApplication.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_13_2023_10_03_PM_[Changes]/MainApplication.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Rate_University_Application/src/resources/background.jpg" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Rate_University_Application/src/Methods.class" />
+    <option name="AFTER_PATH" value="out/production/Rate_University_Application/src/Methods.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_13_2023_10_03_PM_[Changes]/Methods.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/Rate_University_Application/src/Student.class" />
+    <option name="AFTER_PATH" value="out/production/Rate_University_Application/src/Student.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_13_2023_10_03_PM_[Changes]/Student.class" />
+  </binary>
+</changelist>
