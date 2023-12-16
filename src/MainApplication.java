@@ -7,15 +7,21 @@ import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainApplication implements Methods {
     private static List<Student> studentList = new ArrayList<Student>();
     private static List<Course> Kurset = new ArrayList<Course>();
-    private int nr_Studenteve;
-    private int nr_Kurseve;
+    //private Map<String, Feedback> courseFeedbackMap;
+    private static Map<String, List<Course>> courseRegistrations = new HashMap<>();
 
+    private int nr_Studenteve;
+    //private int nr_Kurseve;
+    private int capacity;
     public static void main(String[] args) {
         MainApplication APP = new MainApplication();
+
         int zgjedhja = 0;
         Scanner input = new Scanner(System.in);
         int i = APP.Lexo_Studentet();  // ben leximin nga file i studenteve dhe kthen numrin e studenteve ne file
@@ -24,6 +30,8 @@ public class MainApplication implements Methods {
         //System.out.println("Studentet: "+APP.nr_Studenteve);
         String emri;
         String Id;
+        String courseNa;
+        String studentName;
         do {
             //shfaq menune
             APP.Menu();
@@ -134,12 +142,12 @@ public class MainApplication implements Methods {
                         Course obj= iterator.next();
                         if (obj.getCourseName().equals(emri)) {
                             System.out.print("\nEmri:\t\t\t"+obj.getCourseName());
-                            System.out.print("\nMbiemri:\t\t"+obj.getAuthor());
-                            System.out.print("\nVenddodhja:\t\t"+obj.getCapacity());
-                            System.out.print("\nMosha:\t\t\t"+obj.getStartDate());
-                            System.out.print("\nEkipi:\t\t\t"+obj.getEndDate());
-                            System.out.print("\nVendi Pare:\t\t"+obj.getCourseDescription());
-                            System.out.print("\nVendi Dyte:\t\t"+obj.getLectureHallLocation());
+                            System.out.print("\nAutori:\t\t"+obj.getAuthor());
+                            System.out.print("\nKapaciteti:\t\t"+obj.getCapacity());
+                            System.out.print("\nData e Fillimit:\t\t\t"+obj.getStartDate());
+                            System.out.print("\nData e Perfundimit:\t\t\t"+obj.getEndDate());
+                            System.out.print("\nPershkrimi i Kursit :\t\t"+obj.getCourseDescription());
+                            System.out.print("\n Klasa ne te cilen zhvillohet leksioni:\t\t"+obj.getLectureHallLocation());
                             ndodhet = true;
                         }
                     }
@@ -148,6 +156,106 @@ public class MainApplication implements Methods {
                     }
 
                     break;
+
+                case 7:
+                    //FR4: Leave feedback: The student can leave feedback for a course. The feedback consists of a description (not
+                    //more than 1000 characters) and a rating (from 1 to 5). It is possible only to leave feedback for the courses where
+                    //the student is already registered. A student can only leave one feedback for a course.
+                    /*Scanner in= new Scanner(System.in);
+                    System.out.print("\nZgjidh nje kursID: ");
+                    APP.tableCourse();
+                    String courseDescriptionn=in.next();
+                    if(courseDescriptionn.length()>=1000){
+                        System.out.println("Jo me shume se 1000 characters");}
+                    else {
+                        System.out.println("Jepni nje Rate nga 1-5");
+                        int rate=in.nextInt();
+                        APP.leaveFeedback(String courseName, String courseDescriptionn, int rating);
+                    }
+
+                    APP.leaveFeedback(String courseName, String courseDescriptionn, int rating);*/
+                    System.out.print("\nZgjidh nje kursID per ta vleresuar ate kurs: ");
+                    APP.tableCourse();
+
+                    System.out.println("Enter feedback description (not more than 1000 characters):");
+                    Scanner scanner= new Scanner(System.in);
+                    String courseDescriptionn=scanner.next();
+                    System.out.println("Jepni emrin e kursit qe doni te shtoni:");
+                    String courseN=scanner.nextLine();
+
+                    try {
+                        APP.validateDescriptionLength(courseDescriptionn);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        return;  // Exit the program if the description is too long
+                    }
+
+                    // Get user input for rating
+                    System.out.println("Enter feedback rating (1 to 5):");
+                    int rate = scanner.nextInt();
+
+                    // Validate rating
+                    try {
+                        APP.validateRating(rate);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        return;  // Exit the program if the rating is invalid
+                    }
+
+                    // Continue processing feedback...
+                    System.out.println("Feedback submitted successfully!");
+                    APP.leaveFeedback(courseN,courseDescriptionn,rate);
+                    break;
+
+                case 8:
+                    Scanner nu=new Scanner(System.in);
+                    System.out.println("Jepni emrin e kursit ne te cilin do shtoni studentin!\n");
+                     courseNa=nu.next();
+                    System.out.println("Jepni Studentin(ID-e tij) te cilin doni te shtoni! \n");
+                    nu.nextLine();
+                    studentName=nu.nextLine();
+                    boolean studentFound = false;
+                    for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+                        Student obj1= iterator.next();
+                        if (obj1.getStudentName().equals(studentName)) {
+                            APP.registerStudent(courseNa,obj1);
+                            studentFound = true;
+                            System.out.println("Studenti u rregjistrua te kursi me sukses");
+                            break;
+                        }
+                    }
+                    if(!studentFound) {
+                        System.err.println("\n\tStudenti "+studentName+" nuk ndodhet ne Liste!\n");
+                    }
+
+
+                 break;
+
+                case 9:
+                    Scanner n=new Scanner(System.in);
+                    System.out.println("Jepni emrin e kursit ne te cilin doni te hiqni studentin!\n");
+                    courseName=n.next();
+                    System.out.println("Jepni Studentin(ID-e tij) te cilin doni te hiqni! \n");
+                    n.nextLine();
+                    studentName=n.nextLine();
+                    boolean Found = false;
+                    for (Iterator<Student> iterator = studentList.iterator(); iterator.hasNext();) {
+                        Student obj2= iterator.next();
+                        if (obj2.getStudentName().equals(studentName)) {
+                            APP.dropCourse(courseName,obj2);
+                            Found = true;
+                            System.out.println("Studenti u c'rregjistrua nga kursi me sukses");
+                            break;
+                        }
+                    }
+                    if(!Found) {
+                        System.err.println("\n\tStudenti "+studentName+" nuk ndodhet ne Liste!\n");
+                    }
+
+
+                    break;
+
+
                 default:
                     System.out.println("\nInput i gabuar. Provo perseri !\n\n");
                     break;
@@ -155,9 +263,18 @@ public class MainApplication implements Methods {
         } while (zgjedhja != 0);
     }
 
-
-
-
+      @Override
+      public void validateDescriptionLength(String description) {
+          if (description.length() > 1000) {
+              throw new IllegalArgumentException("Jo më shumë se 1000 fjalë është e lejuar.");
+          }
+      }
+      @Override
+      public void validateRating(int rating) {
+          if (rating < 1 || rating > 5) {
+              throw new IllegalArgumentException("Rating should be between 1 and 5.");
+          }
+      }
     @Override
     public void Shto_Student() {
         Scanner scan = new Scanner(System.in);
@@ -194,6 +311,64 @@ public class MainApplication implements Methods {
             System.out.println(studentList);
         }
     }
+    @Override
+    public void registerStudent(String courseName, Student student) {
+        // Check if the course exists in the registrations map
+        if (courseRegistrations.containsKey(courseName)) {
+            // If the course exists, add the student to the list of registered students for that course
+            List<Course> courses = courseRegistrations.get(courseName);
+           Course course=findCourse(courseName);
+            if (course.getCapacity() > 0) {
+                courses.add(course);
+                studentList.add(student);
+                course.decreaseCapacity();
+                System.out.println("Student registered for course: " + courseName);
+            } else if((course.getCapacity() == 0)) {
+                System.out.println("No available seats for course: " + courseName);
+            }
+             else {
+                System.out.println("Course not found: " + courseName);
+            }
+            /*// If the course doesn't exist, create a new entry with an empty list of courses
+            List<Course> newCourseList = new ArrayList<>();
+            newCourseList.add(findCourse(courseName)); // Assuming findCourse returns a Course object
+            courseRegistrations.put(courseName, newCourseList);
+            studentList.add(student);*/
+        }
+    }
+
+    @Override
+
+    public Course findCourse(String courseName) {
+        // Assuming you have a method to find a course by name in the Kurset list
+        for (Course cours : Kurset) {
+            if (cours.getCourseName().equals(courseName)) {
+                return cours;
+            }
+        }
+        return null;
+    }
+ @Override
+ public void dropCourse(String courseName, Student student) {
+     // Check if the course exists in the registrations map
+     if (courseRegistrations.containsKey(courseName)) {
+         // If the course exists, remove the student from the list of registered students for that course
+         List<Course> courses = courseRegistrations.get(courseName);
+         Course course = findCourse(courseName);
+
+         if (courses.contains(course)) {
+             courses.remove(course);
+             studentList.remove(student);
+             course.increaseCapacity();
+             System.out.println("Student dropped from course: " + courseName);
+         } else {
+             System.out.println("Student not registered for course: " + courseName);
+         }
+     } else {
+         System.out.println("Course not found: " + courseName);
+     }
+ }
+
 
 
     @Override
@@ -214,7 +389,7 @@ public class MainApplication implements Methods {
                 }
             }
             System.out.println("\n\tKursi " + emri + " u fshi nga lista!!\n\n");
-            nr_Kurseve--;
+            capacity--;
             ruaj_Kurset();
         } else if (!isCourse)
             System.err.println("\n\tNuk ekziston asnje Kurs me emrin " + emri + "!\n\n");
@@ -226,7 +401,10 @@ public class MainApplication implements Methods {
 
         Kurset.add(course);
         ruaj_Kurset();
-        this.nr_Kurseve += 1;
+        this.capacity += 1;
+        for (Course cour : Kurset) {
+            courseRegistrations.put(cour.getCourseName(), new ArrayList<>());
+        }
     }
 
 
@@ -326,10 +504,13 @@ public class MainApplication implements Methods {
         System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
                 + "1 --> Shto nje student\n"
                 + "2 --> Shfaq Studentet\n"
-                + "3 -->  Shto Kursin\n"
+                + "3 -->  Shto Kurs\n"
                 + "4 -->  Fshi nje Kurs \n"
                 + "5 -->  Shfaq Kurset\n"
                 + "6 --> Shfaq detajet e nje kursi\n"
+                + "7 --> Leave a Feedback\n"
+                + "8 --> Register a Student to Course\n"
+                + "9-->Drop Course \n"
                 + "0 --> Dil\n\n"
                 + "Zgjedhja: ");
     }
@@ -345,6 +526,11 @@ public class MainApplication implements Methods {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void leaveFeedback(String courseName, String description, int rating) {
+
     }
 
     @Override
@@ -376,6 +562,19 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
         return j;
+    }
+
+
+    @Override
+    public void increaseCapacity() {
+        capacity++;
+    }
+
+    @Override
+    public void decreaseCapacity() {
+        if (capacity > 0) {
+            capacity--;
+        }
     }
 
     @Override
@@ -412,6 +611,11 @@ public class MainApplication implements Methods {
     }
 
     @Override
+    public boolean isStudentRegistered(String courseName, String studentId) {
+        return false;
+    }
+
+    @Override
     public void tableCourse() {
         // Provide implementation for the tableCourse method
 
@@ -425,6 +629,7 @@ public class MainApplication implements Methods {
                 System.out.print("\nFundi i Kursit:\t\t" + obj.getEndDate());
                 System.out.print("\nPershkrimi  i Kursit:\t\t" + obj.getCourseDescription());
                 System.out.print("\nVendi ku zhvillohet Kursi:\t\t" + obj.getLectureHallLocation());
+               // duhet implementuar feedback System.out.println("\nFeedback i ketij kursi eshte:\t\t" +obj.)
             }
         }
 

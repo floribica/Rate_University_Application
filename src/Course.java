@@ -18,6 +18,9 @@ class Course implements Serializable {
     Course() {
 
     }
+    Course(String courseName){
+        this.courseName=courseName;
+    }
     public Course(String courseName, String  author, Date startDate, Date endDate, int capacity,String courseDescription, String lectureHallLocation, String[] kurset) {
         super();
         this.courseName =courseName ;
@@ -76,8 +79,6 @@ class Course implements Serializable {
         this.capacity=i;
     }
 
-
-
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -87,5 +88,15 @@ class Course implements Serializable {
     }
 
 
+    public void decreaseCapacity() {
+        if (capacity > 0) {
+            capacity--;
+        }
+    }
+
+    public void increaseCapacity() {
+        // Implement logic to increase the capacity (if needed)
+        capacity++;
+    }
 }
 
