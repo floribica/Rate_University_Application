@@ -1,5 +1,7 @@
-package main;
+package login;
 
+
+import src.CourseGUI;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -163,13 +165,11 @@ public class login extends javax.swing.JFrame {
 
         User user = UserFileReader.readUserFromFile(username, password);
         if (user != null) {
-            JFrame frame = new JFrame();
             dispose();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setVisible(true);
-            frame.setSize(300, 300);
-            frame.setLocationRelativeTo(null);
-            frame.setTitle(user.getFirstName() + " " + user.getLastName());
+            CourseGUI.course();
+
+
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);

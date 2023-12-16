@@ -1,7 +1,6 @@
-package main;
+package login;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 
 public class Signin extends javax.swing.JFrame {
