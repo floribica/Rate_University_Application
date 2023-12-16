@@ -10,13 +10,13 @@ public class test {
      *
      * @author Lenovo
      */
-    public class NewJDialog extends javax.swing.JDialog {
+    public static class NewJDialog extends javax.swing.JDialog {
 
         /**
          * Creates new form NewJDialog
          */
-        public NewJDialog(java.awt.Frame parent, boolean modal) {
-            super(parent, modal);
+        public NewJDialog() {
+
             initComponents();
         }
 
@@ -54,7 +54,7 @@ public class test {
 
             setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
             setPreferredSize(new java.awt.Dimension(1000, 750));
-            getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
             jPanel1.setBackground(new java.awt.Color(255,255,255,70));
 
@@ -199,13 +199,12 @@ public class test {
                                             .addGap(64, 64, 64)))
             );
 
-            getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 610, 420));
+            getContentPane().add(jPanel1, new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
 
-            jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Lenovo\\Pictures\\Camera Roll\\signup.jpg")); // NOI18N
-            getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+            jLabel1.setIcon(new javax.swing.ImageIcon("Rate_University_Application/image/img_1.png")); // NOI18N
+            getContentPane().add(jLabel1, new javax.swing.BoxLayout(jLabel1, javax.swing.BoxLayout.LINE_AXIS));
 
-            jPasswordField1.setText("jPasswordField1");
-            getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 560, -1, -1));
+            getContentPane().add(jPasswordField1, new javax.swing.BoxLayout(jPasswordField1, javax.swing.BoxLayout.LINE_AXIS));
 
             javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
             jPanel2.setLayout(jPanel2Layout);
@@ -218,7 +217,7 @@ public class test {
                             .addGap(0, 100, Short.MAX_VALUE)
             );
 
-            getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 90, -1, -1));
+            getContentPane().add(jPanel2, new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
             pack();
         }// </editor-fold>
@@ -269,7 +268,7 @@ public class test {
             /* Create and display the dialog */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    NewJDialog dialog = new NewJDialog(new javax.swing.JFrame(), true);
+                    NewJDialog dialog = new NewJDialog();
                     dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                         @Override
                         public void windowClosing(java.awt.event.WindowEvent e) {

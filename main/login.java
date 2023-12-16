@@ -135,7 +135,7 @@ public class login extends javax.swing.JFrame {
 
 
 
-        jLabel2.setIcon(new ImageIcon("/Users/floribica/Documents/GitHub/Rate_University_Application/image/img.png")); // NOI18N
+        jLabel2.setIcon(new ImageIcon("Rate_University_Application/image/img.png")); // NOI18N
         add(jLabel2, BorderLayout.CENTER);
 
         setSize(new Dimension(1000,698));
@@ -177,7 +177,4 @@ public class login extends javax.swing.JFrame {
 
     }
 
-    public static void main(String args[]) {
-        SwingUtilities.invokeLater(() -> new test());
-    }
 }
