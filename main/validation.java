@@ -115,7 +115,6 @@ public class validation {
             return false;
         }
 
-        // Check if username is registered
 
 
         return true;
