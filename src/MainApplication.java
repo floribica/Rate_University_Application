@@ -15,6 +15,11 @@ public class MainApplication implements Methods {
     private static List<Course> Kurset = new ArrayList<Course>();
     //private Map<String, Feedback> courseFeedbackMap;
     private static Map<String, List<Course>> courseRegistrations = new HashMap<>();
+   // private static Map<List<Course>,Integer> courseRatings=new HashMap<>();
+   private Map<Course, Integer> courseRatings=new HashMap<>();
+
+
+
 
     private int nr_Studenteve;
     //private int nr_Kurseve;
@@ -254,6 +259,56 @@ public class MainApplication implements Methods {
 
 
                     break;
+                case 10:
+                    Scanner inm = new Scanner(System.in);
+
+                    // Assuming Kurset list is already populated with Course objects
+
+                    System.out.println("Jepni emrin e kursit te cilin doni ta vleresoni!");
+                    String emerK = inm.nextLine();
+
+                    System.out.println("Jepni vleresimin kursit!");
+                    int rating = inm.nextInt();
+
+                    boolean yes = false;
+                    for (Iterator<Course> iterator = Kurset.iterator(); iterator.hasNext();) {
+                        Course obj= iterator.next();
+                        if (obj.getCourseName().equals(emerK)) {
+                            APP.addRating(obj, rating);
+                            APP.saveRatingsToFile();
+                            APP.loadRatingsFromFile();
+                            yes = true;
+                            break; // Stop the loop after finding the course
+                        }
+                    }
+
+                    if (!yes) {
+                        System.err.println("\n\tKursi " + emerK + " nuk ndodhet ne Liste!\n");
+                    }
+
+
+
+
+                    break;
+                case 11:
+                    Scanner scan1 =new Scanner(System.in) ;
+                    System.out.println("View Rate for a course:");
+                    String name=scan1.next();
+                    boolean y = false;
+                    for (Iterator<Course> iterator = Kurset.iterator(); iterator.hasNext();) {
+                        Course obj= iterator.next();
+                        if (obj.getCourseName().equals(name)) {
+                            APP.viewRatingForCourse(name);
+                            yes = true;
+                            break;
+                        }
+                    }
+
+                    if (!y) {
+                        System.err.println("\n\tKursi " + name + " nuk ndodhet ne Liste!\n");
+                    }
+
+                    break;
 
 
                 default:
@@ -263,18 +318,79 @@ public class MainApplication implements Methods {
         } while (zgjedhja != 0);
     }
 
+   // @SuppressWarnings("resource")
       @Override
       public void validateDescriptionLength(String description) {
           if (description.length() > 1000) {
               throw new IllegalArgumentException("Jo më shumë se 1000 fjalë është e lejuar.");
           }
       }
-      @Override
-      public void validateRating(int rating) {
+
+    @Override
+    public void validateRating(int rating) {
           if (rating < 1 || rating > 5) {
               throw new IllegalArgumentException("Rating should be between 1 and 5.");
           }
       }
+      @Override
+      /*public void addRating(List<Course> courses, int rating) {
+          if (!courseRatings.containsKey(courses)) {
+              courseRatings.put(new ArrayList<>(courses), rating);
+              System.out.println("Rating added for " + courses);
+          } else {
+              System.out.println("You have already rated these courses. Use updateRating to modify.");
+          }
+      }*/
+      public void addRating(Course course, int rating) {
+          courseRatings.put(course, rating);
+          System.out.println("Rating added for " + course.getCourseName());
+      }
+
+      @Override
+      public void removeRating(List<Course> courses) {
+          if (courseRatings.containsKey(courses)) {
+              courseRatings.remove(courses);
+              System.out.println("Rating removed for " + courses);
+          } else {
+              System.out.println("Courses not found. No rating to remove.");
+          }
+      }
+      @Override
+    public int viewRatingForCourse(String courseName) {
+        Course courseToView = null;
+        for (Course course : Kurset) {
+            if (course.getCourseName().equals(courseName)) {
+                courseToView = course;
+                break;
+            }
+        }
+
+        if (courseToView != null) {
+            return courseRatings.getOrDefault(courseToView, -1);
+        } else {
+            System.err.println("Course not found.");
+            return -1;
+        }
+    }
+      @Override
+      public void loadRatingsFromFile() {
+          try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Rating.txt"))) {
+              Object obj;
+              while ((obj = ois.readObject()) != null) {
+                  if (obj instanceof Course) {
+                      Course course = (Course) obj;
+                      int rating = (int) ois.readObject();
+                      courseRatings.put(course, rating);
+                  }
+              }
+          } catch (EOFException e) {
+              System.out.println("Ratings loaded from file successfully.");
+          } catch (IOException | ClassNotFoundException e) {
+              System.out.println("Error loading ratings from file: " + e.getMessage());
+              e.printStackTrace();
+          }
+      }
+
     @Override
     public void Shto_Student() {
         Scanner scan = new Scanner(System.in);
@@ -511,6 +627,8 @@ public class MainApplication implements Methods {
                 + "7 --> Leave a Feedback\n"
                 + "8 --> Register a Student to Course\n"
                 + "9-->Drop Course \n"
+                + "10-->Rate a course\n"
+                + "11-->ViewRate a course\n"
                 + "0 --> Dil\n\n"
                 + "Zgjedhja: ");
     }
@@ -569,6 +687,20 @@ public class MainApplication implements Methods {
     public void increaseCapacity() {
         capacity++;
     }
+    @Override
+    public void saveRatingsToFile() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Rating.txt"))) {
+            for (Map.Entry<Course, Integer> entry : courseRatings.entrySet()) {
+                oos.writeObject(entry.getKey());
+                oos.writeObject(entry.getValue());
+            }
+            System.out.println("Ratings saved to file successfully.");
+        } catch (IOException e) {
+            System.out.println("Error saving ratings to file: " + e.getMessage());
+        }
+    }
+
+
 
     @Override
     public void decreaseCapacity() {
