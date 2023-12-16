@@ -18,6 +18,9 @@ class Course implements Serializable {
     Course() {
 
     }
+    Course(String courseName){
+        this.courseName=courseName;
+    }
     public Course(String courseName, String  author, Date startDate, Date endDate, int capacity,String courseDescription, String lectureHallLocation, String[] kurset) {
         super();
         this.courseName =courseName ;

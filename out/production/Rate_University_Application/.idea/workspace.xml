@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46457623-e4bd-4d16-b0d2-fbdac53d14d1" name="Changes" comment="files &#10;Kurset.txt&#10;Studentet.txt">
+    <list default="true" id="46457623-e4bd-4d16-b0d2-fbdac53d14d1" name="Changes" comment="FR3: Check course details: A student can see details about a course such as a description of the course, the course&#10;                    lecturer, the course times, the location of the lecture hall, and also the number of registered students">
+      <change afterPath="$PROJECT_DIR$/src/CourseRegistrationSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Methods.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,11 +25,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -44,19 +46,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1702333669494</updated>
       <workItem from="1702333673898" duration="287000" />
-      <workItem from="1702333987538" duration="19908000" />
+      <workItem from="1702333987538" duration="27407000" />
+      <workItem from="1702676724943" duration="6416000" />
     </task>
     <task id="LOCAL-00001" summary="add this line of code &quot;package src&quot;">
       <created>1702410058823</created>
@@ -124,7 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702502354986</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="FR3: Check course details: A student can see details about a course such as a description of the course, the course&#10;                    lecturer, the course times, the location of the lecture hall, and also the number of registered students">
+      <created>1702582624987</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1702582624987</updated>
+    </task>
+    <task id="LOCAL-00010" summary="FR3: Check course details: A student can see details about a course such as a description of the course, the course&#10;                    lecturer, the course times, the location of the lecture hall, and also the number of registered students">
+      <created>1702583640520</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1702583640520</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,7 +165,8 @@
     <MESSAGE value="added Shto_Kurs()  method to Interface (Methods)" />
     <MESSAGE value="FR2: Search for available courses: A student can see all courses. He is able to join a course. He can also drop a&#10;                    //course." />
     <MESSAGE value="files &#10;Kurset.txt&#10;Studentet.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="files &#10;Kurset.txt&#10;Studentet.txt" />
+    <MESSAGE value="FR3: Check course details: A student can see details about a course such as a description of the course, the course&#10;                    lecturer, the course times, the location of the lecture hall, and also the number of registered students" />
+    <option name="LAST_COMMIT_MESSAGE" value="FR3: Check course details: A student can see details about a course such as a description of the course, the course&#10;                    lecturer, the course times, the location of the lecture hall, and also the number of registered students" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
