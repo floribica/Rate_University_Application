@@ -1,7 +1,7 @@
 package login;
 
 
-import src.CourseGUI;
+import src.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -52,13 +52,14 @@ public class login extends javax.swing.JFrame {
         jLabel3.setForeground(Color.white);
         jLabel3.setText("USERNAME:");
 
-        jTextField1.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        jTextField1.setFont(new java.awt.Font("Hannotate SC", 0, 24)); // NOI18N
 
         jLabel4.setFont(new Font("Hiragino Maru Gothic ProN", Font.BOLD, 18));
         jLabel4.setForeground(Color.white);
         jLabel4.setText("PASSWORD:");
 
-        jPasswordField1.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+        jPasswordField1.setFont(new java.awt.Font("Hannotate SC", 0, 24)); // NOI18N
+
 
         jButton1.setBackground(new Color(74, 96, 84));
         jButton1.setFont(new Font("Arial Narrow", Font.BOLD, 24));
@@ -167,9 +168,6 @@ public class login extends javax.swing.JFrame {
         if (user != null) {
             dispose();
             CourseGUI.course();
-
-
-
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
