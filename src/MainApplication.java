@@ -1,31 +1,19 @@
 package src;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.text.ParseException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainApplication implements Methods {
-    private List<Course> courses; // Assume this is initialized with all available courses
-    private List<Student> students;
-    public MainApplication() {
-        // Initialize courses and students lists
-        courses = new ArrayList<>();
-        students = new ArrayList<>();
-        // Populate with test data
 
-    }
+    Student student = new Student();
 
+    private static List<Course> courses = new ArrayList<>();// Assume this is initialized with all available courses
+    private static List<Student> students = new ArrayList<>();
 
     public static void main(String[] args) {
+
         MainApplication APP = new MainApplication();
 
 
@@ -84,8 +72,9 @@ public class MainApplication implements Methods {
 
 
                     Course mathCourse = new Course(title,descrip,author1,dateString,locate);
-
+                    students.add(student);
                     student.joinCourse(mathCourse);
+                    System.out.println(APP.getCourses());
                     APP.writeCourse();
 
 
@@ -93,6 +82,7 @@ public class MainApplication implements Methods {
                     break;
                 case 2:
                     // A student can drop a course
+                System.out.println("Jepni emrin e kursit te cilit doni te largoni Studentin!");
 
 
 
@@ -199,26 +189,118 @@ public class MainApplication implements Methods {
     }
 
     @Override
-    public void dropCourse(Student student, Course course) {
-        // Student drops a course
-        student.dropCourse(course);
+    public void dropCourse(Course course) {
+        if (courses.contains(course)) {
+            courses.remove(course);
+            course.dropCourse();
+            System.out.println(studentName + " dropped the course: " + course.getName());
+        } else {
+            System.out.println(studentName + " is not enrolled in the course: " + course.getName());
+        }
+    }
+    @Override
+    public void joinCourse(Course course) {
+        courses.add(course);
+        course.joinCourse();
+
     }
 
+    @Override
+    public List<Course> getCourses() {
+        return courses;
+    }
 
     @Override
-    public List<Feedback> viewFeedback(Course course) {
-        // Return a list of feedback for a course, ordered by date
-        return course.getFeedbacks();
+    public void viewFeedbacks(Course course) {
+        List<Feedback> feedbacks = course.getFeedbacks();
+
+        if (feedbacks.isEmpty()) {
+            System.out.println("No feedback available for the course: " + course.getName());
+        } else {
+            Collections.sort(feedbacks, Comparator.comparing(Feedback::getDate).reversed());
+
+            System.out.println("Feedbacks for Course: " + course.getName());
+            for (Feedback f : feedbacks) {
+                System.out.println("Date: " + f.getDate());
+                System.out.println("Description: " + f.getDescription());
+                System.out.println("Rating: " + f.getRating());
+                System.out.println();
+            }
+
+            double averageRating = calculateAverageRating(feedbacks);
+            System.out.println("Average Rating: " + averageRating);
+        }
+    }
+    @Override
+    public double calculateAverageRating(List<Feedback> feedbacks) {
+        int totalRating = 0;
+        for (Feedback f : feedbacks) {
+            totalRating += f.getRating();
+        }
+
+        return (double) totalRating / feedbacks.size();
     }
 
     @Override
     public void displayCourseDetails() {
         /////////////////////////////////////////////////////////////////////
     }
+    @Override
+    public void viewTopRatedCourses(List<Course> courses, int count) {
+        if (courses == null || courses.isEmpty()) {
+            System.out.println("No courses available.");
+        } else {
+            // Use Comparator.comparingDouble with a lambda expression for clarity
+            courses.sort(Comparator.comparingDouble(course -> calculateAverageRating((List<Feedback>) course)).reversed());
+
+            System.out.println("Top Rated Courses:");
+
+            // Use Math.min to avoid IndexOutOfBoundsException if count is greater than the list size
+            int displayCount = Math.min(count, courses.size());
+
+            for (int i = 0; i < displayCount; i++) {
+                Course course = courses.get(i);
+                // Ensure course is not null before displaying details
+                if (course != null) {
+                    course.displayCourseDetails();
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+
+
 
     @Override
-    public void leaveFeedback(Student student, Course course, String description, int rating) {
-//////////////////////////////////////////////////////////////
+
+    public void removeOldFeedbacks(List<Course> courses) {
+    java.sql.Date currentDate = new java.sql.Date(0, 0, 0);
+    Calendar calendar = Calendar.getInstance();
+    calendar.add(Calendar.YEAR, -1);
+    java.sql.Date oneYearAgo = (java.sql.Date) calendar.getTime();
+
+    for (Course course : courses) {
+        List<Feedback> feedbacks = course.getFeedbacks();
+
+        Iterator<Feedback> iterator = feedbacks.iterator();
+        while (iterator.hasNext()) {
+            Feedback feedback = iterator.next();
+            if (feedback.getDate().before(oneYearAgo)) {
+                iterator.remove();
+                System.out.println("Removed old feedback for the course: " + course.getName());
+            }
+
+        }
+    }
+
+    }
+
+    @Override
+    public void leaveFeedback(Course course, String description, int rating) {
+        Feedback feedback = new Feedback(description, rating);
+        course.addFeedback(feedback);
+        System.out.println("Feedback left for course " + course.getName());
     }
 }
 

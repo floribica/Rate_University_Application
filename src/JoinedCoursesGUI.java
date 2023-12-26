@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class JoinedCoursesGUI extends JFrame {
+
     private Map<String, CourseDetails> courseDetailsMap;
     private Map<String, Boolean> joinedCoursesMap;
 
