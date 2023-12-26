@@ -80,20 +80,28 @@ public class Student  {
     }
 
     public void viewTopRatedCourses(List<Course> courses, int count) {
-        if (courses.isEmpty()) {
+        if (courses == null || courses.isEmpty()) {
             System.out.println("No courses available.");
         } else {
-            courses.sort(Comparator.comparingDouble(this::calculateAverageRating).reversed());
+            // Use Comparator.comparingDouble with a lambda expression for clarity
+            courses.sort(Comparator.comparingDouble(course -> calculateAverageRating((List<Feedback>) course)).reversed());
 
             System.out.println("Top Rated Courses:");
+
+            // Use Math.min to avoid IndexOutOfBoundsException if count is greater than the list size
             int displayCount = Math.min(count, courses.size());
+
             for (int i = 0; i < displayCount; i++) {
                 Course course = courses.get(i);
-                course.displayCourseDetails();
-                System.out.println();
+                // Ensure course is not null before displaying details
+                if (course != null) {
+                    course.displayCourseDetails();
+                    System.out.println();
+                }
             }
         }
     }
+
 
     public void removeOldFeedbacks(List<Course> courses) {
         Date currentDate = new Date(0, 0, 0);
