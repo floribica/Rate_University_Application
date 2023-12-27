@@ -12,6 +12,8 @@ public interface Methods  {
     void dropCourse(Student student, Course course);
     // FR3: Check course details
 
+    void dropCourse(Course course);
+
     void joinCourse(Course course);
 
     List<Course> getCourses();
@@ -21,7 +23,7 @@ public interface Methods  {
     // FR5: View feedback for a course
     List<Feedback> viewFeedback(Course course);
 
-    void viewFeedbacks(Course course);
+   void viewFeedbacks(Course course);
 
     double calculateAverageRating(List<Feedback> feedbacks);
 

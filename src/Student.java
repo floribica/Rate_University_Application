@@ -18,7 +18,7 @@ public class Student  {
     }
     public Student(String name) {
         this.studentName = name;
-        this.courses = new ArrayList<>();
+
     }
 
 

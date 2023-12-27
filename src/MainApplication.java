@@ -73,7 +73,7 @@ public class MainApplication implements Methods {
 
                     Course mathCourse = new Course(title,descrip,author1,dateString,locate);
                     students.add(student);
-                    student.joinCourse(mathCourse);
+                    APP.joinCourse(mathCourse);
                     System.out.println(APP.getCourses());
                     APP.writeCourse();
 
@@ -124,7 +124,7 @@ public class MainApplication implements Methods {
         } while (zgjedhja != 0);
     }
 
-    public void studentsEnrolled(Course course) {
+   /* public void studentsEnrolled(Course course) {
         List<Student> enrolledStudents = new ArrayList<>();
         for (Student student : students) { // Assuming students is the list of students
             if (student.getCourses().contains(course)) {
@@ -136,7 +136,7 @@ public class MainApplication implements Methods {
         for (Student student : enrolledStudents) {
             System.out.println(student.getName());
         }
-    }
+    }*/
 
     // @SuppressWarnings("resource")
 
@@ -184,18 +184,23 @@ public class MainApplication implements Methods {
 
     @Override
     public void joinCourse(Student student, Course course) {
-        // Student joins a course
-        student.joinCourse(course);
+
     }
+
+    @Override
+    public void dropCourse(Student student, Course course) {
+
+    }
+
 
     @Override
     public void dropCourse(Course course) {
         if (courses.contains(course)) {
             courses.remove(course);
             course.dropCourse();
-            System.out.println(studentName + " dropped the course: " + course.getName());
+            System.out.println(  " dropped the course: " + course.getName());
         } else {
-            System.out.println(studentName + " is not enrolled in the course: " + course.getName());
+            System.out.println( " is not enrolled in the course: " + course.getName());
         }
     }
     @Override
@@ -208,6 +213,11 @@ public class MainApplication implements Methods {
     @Override
     public List<Course> getCourses() {
         return courses;
+    }
+
+    @Override
+    public List<Feedback> viewFeedback(Course course) {
+        return null;
     }
 
     @Override
@@ -245,6 +255,12 @@ public class MainApplication implements Methods {
     public void displayCourseDetails() {
         /////////////////////////////////////////////////////////////////////
     }
+
+    @Override
+    public void leaveFeedback(Student student, Course course, String description, int rating) {
+
+    }
+
     @Override
     public void viewTopRatedCourses(List<Course> courses, int count) {
         if (courses == null || courses.isEmpty()) {
