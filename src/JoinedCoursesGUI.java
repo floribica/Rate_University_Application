@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class JoinedCoursesGUI extends JFrame {
-
     private Map<String, CourseDetails> courseDetailsMap;
-    private Map<String, Boolean> joinedCoursesMap;
 
     public JoinedCoursesGUI(List<String> joinedCourses) {
         setTitle("Your Joined Courses");
@@ -18,23 +16,11 @@ public class JoinedCoursesGUI extends JFrame {
         setLocationRelativeTo(null);
 
         initializeCourseDetails();
-        initializeJoinedCoursesMap(joinedCourses);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
 
         // Navigation Bar
-        JPanel navBarPanel = new JPanel();
-        navBarPanel.setBackground(Color.DARK_GRAY);
-        navBarPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-
-        JButton homeButton = createNavBarButton("Home");
-        JButton calendarButton = createNavBarButton("Calendar");
-        JButton logoutButton = createNavBarButton("Log Out");
-
-        navBarPanel.add(homeButton);
-        navBarPanel.add(calendarButton);
-        navBarPanel.add(logoutButton);
-
+        JPanel navBarPanel = new NavBarPanel(this);  // Assuming you have a NavBarPanel class
         mainPanel.add(navBarPanel, BorderLayout.NORTH);
 
         // Header Panel
@@ -45,7 +31,7 @@ public class JoinedCoursesGUI extends JFrame {
 
         mainPanel.add(headerPanel, BorderLayout.CENTER);
 
-        JPanel coursePanel = new JPanel(new GridLayout(4, 2, 20, 20));
+        JPanel coursePanel = new JPanel(new GridLayout(joinedCourses.size(), 2, 20, 20));
 
         for (String course : joinedCourses) {
             CourseDetails details = courseDetailsMap.get(course);
@@ -59,20 +45,6 @@ public class JoinedCoursesGUI extends JFrame {
         mainPanel.add(scrollPane, BorderLayout.SOUTH);
 
         add(mainPanel);
-    }
-
-    private JButton createNavBarButton(String text) {
-        JButton button = new JButton(text);
-        button.setForeground(Color.WHITE);
-        button.setBackground(Color.DARK_GRAY);
-        button.setFocusPainted(false);
-        button.addActionListener(e -> handleNavBarButtonClick(text));
-        return button;
-    }
-
-    private void handleNavBarButtonClick(String buttonName) {
-        JOptionPane.showMessageDialog(this, "You clicked: " + buttonName);
-        // Implement navigation logic based on the button clicked
     }
 
     private JPanel createCourseCard(String courseName, CourseDetails details) {
@@ -102,13 +74,6 @@ public class JoinedCoursesGUI extends JFrame {
         courseDetailsMap.put("Physics", new CourseDetails("Jane Smith", 25, "2023-01-20", "2023-05-20"));
         courseDetailsMap.put("Mathematics", new CourseDetails("Bob Johnson", 20, "2023-01-25", "2023-05-25"));
         courseDetailsMap.put("History", new CourseDetails("Alice Brown", 22, "2023-02-01", "2023-06-01"));
-    }
-
-    private void initializeJoinedCoursesMap(List<String> joinedCourses) {
-        joinedCoursesMap = new HashMap<>();
-        for (String course : joinedCourses) {
-            joinedCoursesMap.put(course, true);
-        }
     }
 
     public static void main(String[] args) {

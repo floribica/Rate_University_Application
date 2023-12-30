@@ -17,23 +17,8 @@ public interface Methods  {
     void joinCourse(Course course);
 
     List<Course> getCourses();
-    // FR4: Leave feedback for a course
-    //void leaveFeedback(Student student, Course course, String description, int rating);
-
-    // FR5: View feedback for a course
-    List<Feedback> viewFeedback(Course course);
-
-   void viewFeedbacks(Course course);
-
-    double calculateAverageRating(List<Feedback> feedbacks);
 
     void displayCourseDetails();
 
-    void leaveFeedback(Student student, Course course, String description, int rating);
 
-    abstract void viewTopRatedCourses(List<Course> courses, int count);
-
-    void removeOldFeedbacks(List<Course> courses);
-
-    void leaveFeedback(Course course, String description, int rating);
 }

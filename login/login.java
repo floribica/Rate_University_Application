@@ -167,7 +167,7 @@ public class login extends javax.swing.JFrame {
         User user = UserFileReader.readUserFromFile(username, password);
         if (user != null) {
             dispose();
-            CourseGUI.course();
+           // CourseGUI.main();
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);

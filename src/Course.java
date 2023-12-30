@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.PrintWriter;
+
 
 public class Course  {
     private String name;
@@ -12,8 +14,12 @@ public class Course  {
     private String lecturer;
     private String times;
     private String location;
+    private String title;
+    private String author;
+    private String startDate;
     private int registeredStudents;
     private List<Feedback> feedbacks;
+
 
     public Course(String name, String description, String lecturer, String times, String location) {
         this.name = name;
@@ -29,6 +35,9 @@ public class Course  {
         registeredStudents++;
     }
 
+    public String getDescription() {
+        return description;
+    }
     public void dropCourse() {
         if (registeredStudents > 0) {
             registeredStudents--;
@@ -39,7 +48,9 @@ public class Course  {
         return name;
     }
 
-
+    public String getTitle() {
+        return title;
+    }
     public void displayCourseDetails() {
         System.out.println("Course: " + name);
         System.out.println("Description: " + description);
@@ -53,7 +64,18 @@ public class Course  {
         return registeredStudents;
     }
 
+    public String getAuthor() {
+        return author;
+    }
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+
+    public String getLocation() {
+        return location;
+    }
 
     public void addFeedback(Feedback feedback) {
         feedbacks.add(feedback);
@@ -66,4 +88,17 @@ public class Course  {
     public String getCourseId() {
         return name; // Consider renaming to getName() for consistency
     }
+
+    public static void writeCoursesToCSV(List<Course> courses, String filePath) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
+            for (Course course : courses) {
+                writer.println(course.getTitle() + "," + course.getDescription() + "," +
+                        course.getAuthor() + "," + course.getStartDate() + "," + course.getLocation());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
