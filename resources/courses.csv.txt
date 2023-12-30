@@ -1,0 +1,4 @@
+Computer Science,Programming,John Doe,2023-01-15,Room 101
+Physics,Quantum Mechanics,Jane Smith,2023-01-20,Room 102
+Mathematics,Calculus,Bob Johnson,2023-01-25,Room 103
+History,World History,Alice Brown,2023-02-01,Room 104
