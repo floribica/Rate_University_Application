@@ -1,9 +1,16 @@
 package src;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 
 public class MainApplication implements Methods {
 
@@ -63,25 +70,8 @@ public class MainApplication implements Methods {
         } while (zgjedhja != 0);
     }
 
-
-   /* public void studentsEnrolled(Course course) {
-        List<Student> enrolledStudents = new ArrayList<>();
-        for (Student student : students) { // Assuming students is the list of students
-            if (student.getCourses().contains(course)) {
-                enrolledStudents.add(student);
-            }
-        }
-
-        System.out.println("Students enrolled in the course: " + course.getName());
-        for (Student student : enrolledStudents) {
-            System.out.println(student.getName());
-        }
-    }*/
-
-    // @SuppressWarnings("resource")
-
     @Override
-    public void Menu () {
+    public void Menu() {
         System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
                 + "1 --> Join a Course\n"
                 + "2 --> Drop a Course\n"
@@ -94,15 +84,15 @@ public class MainApplication implements Methods {
                 + "0 --> Dil\n\n"
                 + "Zgjedhja: ");
     }
+
     public void writeCourse() {
         try {
             FileOutputStream ruaj = new FileOutputStream("Studentet.txt", true);
             try {
                 ObjectOutputStream ruajStudent = new ObjectOutputStream(ruaj);
-                for (Object obj : students){
+                for (Object obj : students) {
                     try {
                         ruajStudent.writeObject(obj);
-                        // System.out.println("saved");
                     } catch (NotSerializableException e) {
                         System.out.println("An object was not serializable, it has not been saved.");
                         e.printStackTrace();
@@ -114,40 +104,36 @@ public class MainApplication implements Methods {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
+
     @Override
     public List<Course> searchAvailableCourses() {
-        // Return a list of all available courses
         return courses;
     }
 
     @Override
     public void joinCourse(Student student, Course course) {
-
     }
 
     @Override
     public void dropCourse(Student student, Course course) {
-
     }
-
 
     @Override
     public void dropCourse(Course course) {
         if (courses.contains(course)) {
             courses.remove(course);
             course.dropCourse();
-            System.out.println(  " dropped the course: " + course.getName());
+            System.out.println(" dropped the course: " + course.getName());
         } else {
-            System.out.println( " is not enrolled in the course: " + course.getName());
+            System.out.println(" is not enrolled in the course: " + course.getName());
         }
     }
+
     @Override
     public void joinCourse(Course course) {
         courses.add(course);
         course.joinCourse();
-
     }
 
     @Override
@@ -155,15 +141,15 @@ public class MainApplication implements Methods {
         return courses;
     }
 
-
-
-
     @Override
     public void displayCourseDetails() {
         /////////////////////////////////////////////////////////////////////
     }
 
-
+    public static void addCourse(String title, String descrip, String author1, String dateString, String locate) {
+        Course newCourse = new Course(title, descrip, author1, dateString, locate);
+        courses.add(newCourse);
+    }
 
     public void readCoursesFromCSV(String filePath) throws ParseException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -180,15 +166,13 @@ public class MainApplication implements Methods {
         }
     }
 
-
     public void readStudentsFromCSV(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Assuming student ID is part of the CSV data, you need to extract it from the line
                 String[] parts = line.split(",");
                 if (parts.length >= 1) {
-                    String studentID = parts[0]; // Assuming the first part is the student ID
+                    String studentID = parts[0];
                     Student student = new Student(studentID, "JohnDoe123");
                     students.add(student);
                 }
@@ -197,5 +181,4 @@ public class MainApplication implements Methods {
             e.printStackTrace();
         }
     }
-
 }
