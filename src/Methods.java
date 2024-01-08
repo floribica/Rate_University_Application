@@ -20,5 +20,4 @@ public interface Methods  {
 
     void displayCourseDetails();
 
-
 }

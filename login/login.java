@@ -166,8 +166,15 @@ public class login extends javax.swing.JFrame {
 
         User user = UserFileReader.readUserFromFile(username, password);
         if (user != null) {
+
+            // Open the CoursePage1 class
+            CoursePage1 coursePage1 = new CoursePage1(user);
+            coursePage1.setVisible(true);
+            coursePage1.pack();
+            coursePage1.setLocationRelativeTo(null);
+
             dispose();
-           // CourseGUI.main();
+
 
         } else {
             JOptionPane.showMessageDialog(null, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
