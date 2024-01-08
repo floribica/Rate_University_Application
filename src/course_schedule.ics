@@ -1,0 +1,67 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Your App//EN
+BEGIN:VEVENT
+SUMMARY:Artificial Intelligence - CSE 352
+DTSTART:20240210T000000
+DTEND:20240510T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 352
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Software Engineering - CSE 308
+DTSTART:20240105T000000
+DTEND:20240210T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 308
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Networks - CSE 310
+DTSTART:20240221T000000
+DTEND:20240515T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 310
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Graphics - CSE 335
+DTSTART:20240310T000000
+DTEND:20240710T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 335
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Architecture - CSE 340
+DTSTART:20240912T000000
+DTEND:20241101T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 340
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Operating Systems - CSE 306
+DTSTART:20240730T000000
+DTEND:20240901T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 306
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Database Systems - CSE 305
+DTSTART:20240210T000000
+DTEND:20240510T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 305
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Security - CSE 343
+DTSTART:20241001T000000
+DTEND:20241210T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 343
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:Computer Vision - CSE 352
+DTSTART:20240220T000000
+DTEND:20240420T000000
+DESCRIPTION:<html><p>Introduction to the basic concepts and techniques underlying the design of intelligent computer systems. Topics include heuristic search, problem solving, game playing, knowledge representation, logical inference, planning, reasoning under uncertainty, expert systems, learning, perception, language understanding.</p></html>
+LOCATION:Classroom 352
+END:VEVENT
+END:VCALENDAR

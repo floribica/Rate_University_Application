@@ -1,15 +1,19 @@
 package src;
 
 import login.User;
-
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class CoursePage1 extends JFrame {
+
+    CoursesDetails course = new CoursesDetails();
 
     public CoursePage1(User user) {
         initComponents(user);
     }
+
+
 
 
     private void initComponents(User user) {
@@ -145,15 +149,18 @@ public class CoursePage1 extends JFrame {
         JButton jButton10 = new JButton("MY COURSES");
         JButton jButton11 = new JButton("TOP COURSES");
         JButton jButton12 = new JButton("CALENDAR");
+        JButton jButton13 = new JButton("LOGOUT");
 
         //change font Hannotate TC
         jButton10.setFont(new Font("Hannotate TC", Font.BOLD, 20));
         jButton11.setFont(new Font("Hannotate TC", Font.BOLD, 20));
         jButton12.setFont(new Font("Hannotate TC", Font.BOLD, 20));
+        jButton13.setFont(new Font("Hannotate TC", Font.BOLD, 20));
 
         topPanel.add(jButton10);
         topPanel.add(jButton11);
         topPanel.add(jButton12);
+        topPanel.add(jButton13);
 
         contentPane.add(topPanel, BorderLayout.NORTH);
 
@@ -163,7 +170,47 @@ public class CoursePage1 extends JFrame {
         JLabel jLabel1 = new JLabel();
         contentPane.add(jLabel1, BorderLayout.EAST);
 
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jButton1.addActionListener(evt -> jButton1ActionPerformed(evt,user));
+        jButton2.addActionListener(evt -> jButton2ActionPerformed(evt,user));
+        jButton3.addActionListener(evt -> jButton3ActionPerformed(evt,user));
+        jButton4.addActionListener(evt -> jButton4ActionPerformed(evt,user));
+        jButton5.addActionListener(evt -> jButton5ActionPerformed(evt,user));
+        jButton6.addActionListener(evt -> jButton6ActionPerformed(evt,user));
+        jButton7.addActionListener(evt -> jButton7ActionPerformed(evt,user));
+        jButton8.addActionListener(evt -> jButton8ActionPerformed(evt,user));
+        jButton9.addActionListener(evt -> jButton9ActionPerformed(evt,user));
+
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt, user);
+            }
+
+            private void jButton12ActionPerformed(ActionEvent evt, User user) {
+
+                Calendar calendar = new Calendar();
+                calendar.openCalendar();
+
+            }
+        });
+
+
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+
+            private void jButton13ActionPerformed(ActionEvent evt) {
+                //from login.user to login.login
+                login.login login = new login.login();
+                login.setVisible(true);
+
+
+
+                dispose();
+            }
+        });
+
+
 
 
         pack();
@@ -171,14 +218,57 @@ public class CoursePage1 extends JFrame {
     }
 
     //set an action listener for the button1
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        //open a frame test
-        JFrame frame = new JFrame("Test");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.setVisible(true);
+    private void jButton1ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course1
+        CoursePersonalPage.course(course.course1,user);
+        this.dispose();
+    }
 
-        //close the current frame
+    private void jButton2ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course2
+        CoursePersonalPage.course(course.course2,user);
+        this.dispose();
+    }
+
+    private void jButton3ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course3
+        CoursePersonalPage.course(course.course3,user);
+        this.dispose();
+    }
+
+    private void jButton4ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course4
+        CoursePersonalPage.course(course.course4,user);
+        this.dispose();
+    }
+
+    private void jButton5ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course5
+        CoursePersonalPage.course(course.course5,user);
+        this.dispose();
+    }
+
+    private void jButton6ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course6
+        CoursePersonalPage.course(course.course6,user);
+        this.dispose();
+    }
+
+    private void jButton7ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course7
+        CoursePersonalPage.course(course.course7,user);
+        this.dispose();
+    }
+
+    private void jButton8ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course8
+        CoursePersonalPage.course(course.course8,user);
+        this.dispose();
+    }
+
+    private void jButton9ActionPerformed(ActionEvent evt, User user) {
+        //open a frame for course9
+        CoursePersonalPage.course(course.course9,user);
         this.dispose();
     }
 
