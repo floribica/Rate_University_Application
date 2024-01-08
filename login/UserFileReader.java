@@ -6,7 +6,7 @@ public class UserFileReader {
     public static User readUserFromFile(String username, String password) {
         User user = null;
         try {
-            java.io.File file = new java.io.File("Rate_University_Application/login/users.txt");
+            java.io.File file = new java.io.File("login/users.txt");
             java.util.Scanner input = new java.util.Scanner(file);
             while (input.hasNext()) {
                 String line = input.nextLine();
@@ -26,7 +26,7 @@ public class UserFileReader {
     public static User readUserFromFile(String username) {
         User user = null;
         try {
-            java.io.File file = new java.io.File("Rate_University_Application/login/users.txt");
+            java.io.File file = new java.io.File("login/users.txt");
             java.util.Scanner input = new java.util.Scanner(file);
             while (input.hasNext()) {
                 String line = input.nextLine();
