@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Methods  {
     //duhet implementuar
-    void Menu();        //duhet implementuar
+   // void Menu();        //duhet implementuar
 
     // FR2: Search for available courses and join or drop a course
     List<Course> searchAvailableCourses();
@@ -19,6 +19,8 @@ public interface Methods  {
     List<Course> getCourses();
 
     void displayCourseDetails();
+
+   // static void addCourse(String title, String descrip, String author1, String dateString, String locate);
 
 
 }

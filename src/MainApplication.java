@@ -1,184 +1,64 @@
 package src;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import login.User;
+import src.Course;
+import src.Feedback;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
-public class MainApplication implements Methods {
 
-    private static List<Course> courses = new ArrayList<>();
-    private static List<Student> students = new ArrayList<>();
 
-    public static void main(String[] args) throws ParseException {
-        MainApplication APP = new MainApplication();
-        APP.readCoursesFromCSV("resources/courses.csv");
-        APP.readStudentsFromCSV("resources/students.csv");
+public class MainApplication {
 
-        int zgjedhja = 0;
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) {
+        // Create sample courses
+        Course course1 = new Course("Math101", "Introduction to Calculus", "Prof. Smith", "Mon-Wed 9:00-10:30", "Room 101");
+        Course course2 = new Course("CS101", "Introduction to Programming", "Prof. Johnson", "Tue-Thu 11:00-12:30", "Room 201");
 
-        do {
-            APP.Menu();
-            zgjedhja = input.nextInt();
+        // Create sample feedbacks
+        Feedback feedback1 = new Feedback("Great course!", 5, "student1", "Math101");
+        Feedback feedback2 = new Feedback("Enjoyed the programming assignments.", 4, "student2", "CS101");
 
-            switch (zgjedhja) {
-                case 1:
-                    // A student can join a course
-                    Scanner in = new Scanner(System.in);
-                    System.out.println("\n\nJepni ID-ne per kete student!");
-                    String studentID = in.nextLine();
+        // Create sample users
+        User user1 = new User("John", "Doe", "john", "password1", 1);
+        User user2 = new User("Jane", "Smith", "jane", "password2", 2);
 
-                    Student student = new Student(studentID, "SomeStudentName");
+        // Write courses and feedbacks to files
+        List<Course> courses = new ArrayList<>();
+        courses.add(course1);
+        courses.add(course2);
+        CourseFileWriter.writeCoursesToFile(courses);
 
-                    System.out.println("\n\nJepni titullin e kursit!");
-                    String title = in.nextLine();
-                    System.out.println("\n\nDetajet e ketij kursi");
-                    String descrip = in.nextLine();
-                    System.out.println("\n\nJepni autorin e ketij kursi");
-                    String author1 = in.nextLine();
-                    System.out.println("\n\nJepni daten e zhvillimit te ketij kursi:");
-                    String dateString = in.nextLine();
+        List<Feedback> feedbacks = new ArrayList<>();
+        feedbacks.add(feedback1);
+        feedbacks.add(feedback2);
+        FeedbackFileWriter.writeFeedbacksToFile(feedbacks);
 
-                    try {
-                        // Parse the user input into a Date object
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                        Date date = new Date(dateFormat.parse(dateString).getTime());
-                        System.out.println("Parsed Date: " + date);
-                    } catch (ParseException e) {
-                        System.out.println("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
-                    }
+        // Read courses and feedbacks from files
+        List<Course> coursesFromFile = CourseFileReader.readCoursesFromFile();
+        List<Feedback> feedbacksFromFile = FeedbackFileReader.readFeedbacksFromFile();
 
-                    System.out.println("Jepni location e zhvillimit te ketij kursi:");
-                    String locate = in.nextLine();
+        // Display courses and feedbacks
+        displayCourses(coursesFromFile);
+        displayFeedbacks(feedbacksFromFile);
 
-                    Course mathCourse = new Course(title, descrip, author1, dateString, locate);
-                    students.add(student);
-                    APP.joinCourse(mathCourse);
-                    System.out.println(APP.getCourses());
-                    APP.writeCourse();
-                    break;
-                // ... rest of the code
-            }
-        } while (zgjedhja != 0);
+        // Add more operations as needed for your program
     }
 
-    @Override
-    public void Menu() {
-        System.out.print("\n\n--------------------*****Menuja*****--------------------\n\n"
-                + "1 --> Join a Course\n"
-                + "2 --> Drop a Course\n"
-                + "3 --> Course Details\n"
-                + "4 -->  Leave Feedback\n"
-                + "5 --> View Feedback\n"
-                + "6 --> View top-rated courses\n"
-                + "7 --> See course calendar\n"
-                + "8 -->Remove old feedback\n"
-                + "0 --> Dil\n\n"
-                + "Zgjedhja: ");
-    }
-
-    public void writeCourse() {
-        try {
-            FileOutputStream ruaj = new FileOutputStream("Studentet.txt", true);
-            try {
-                ObjectOutputStream ruajStudent = new ObjectOutputStream(ruaj);
-                for (Object obj : students) {
-                    try {
-                        ruajStudent.writeObject(obj);
-                    } catch (NotSerializableException e) {
-                        System.out.println("An object was not serializable, it has not been saved.");
-                        e.printStackTrace();
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    private static void displayCourses(List<Course> courses) {
+        System.out.println("Courses:");
+        for (Course course : courses) {
+            System.out.println(course);
         }
+        System.out.println();
     }
 
-    @Override
-    public List<Course> searchAvailableCourses() {
-        return courses;
-    }
-
-    @Override
-    public void joinCourse(Student student, Course course) {
-    }
-
-    @Override
-    public void dropCourse(Student student, Course course) {
-    }
-
-    @Override
-    public void dropCourse(Course course) {
-        if (courses.contains(course)) {
-            courses.remove(course);
-            course.dropCourse();
-            System.out.println(" dropped the course: " + course.getName());
-        } else {
-            System.out.println(" is not enrolled in the course: " + course.getName());
+    private static void displayFeedbacks(List<Feedback> feedbacks) {
+        System.out.println("Feedbacks:");
+        for (Feedback feedback : feedbacks) {
+            System.out.println(feedback);
         }
-    }
-
-    @Override
-    public void joinCourse(Course course) {
-        courses.add(course);
-        course.joinCourse();
-    }
-
-    @Override
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    @Override
-    public void displayCourseDetails() {
-        /////////////////////////////////////////////////////////////////////
-    }
-
-    public static void addCourse(String title, String descrip, String author1, String dateString, String locate) {
-        Course newCourse = new Course(title, descrip, author1, dateString, locate);
-        courses.add(newCourse);
-    }
-
-    public void readCoursesFromCSV(String filePath) throws ParseException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 5) {
-                    Course course = new Course(parts[0], parts[1], parts[2], parts[3], parts[4]);
-                    courses.add(course);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void readStudentsFromCSV(String filePath) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 1) {
-                    String studentID = parts[0];
-                    Student student = new Student(studentID, "JohnDoe123");
-                    students.add(student);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        System.out.println();
     }
 }
