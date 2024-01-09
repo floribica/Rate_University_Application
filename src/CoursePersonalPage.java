@@ -3,6 +3,7 @@ package src;
 import login.User;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class CoursePersonalPage {
 
@@ -80,11 +81,10 @@ public class CoursePersonalPage {
 
         //add action listener to view course comments
         viewCourseComments.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FeedbackFileReader.showDiscription(course[1]);
+            public void actionPerformed(ActionEvent evt) {
+                FeedbackFileReader.showDescription(course[1]);
             }
         });
-
         //add action listener to rate course
         rateCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

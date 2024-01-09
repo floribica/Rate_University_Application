@@ -10,11 +10,7 @@ import java.io.PrintWriter;
 
 
 
-   // private List<Feedback> feedbacks;
 
-    //public void joinCourse() {
-    //    registeredStudents++;
-    // }
     public class Course {
         private String name;
         private String description;
@@ -140,28 +136,6 @@ import java.io.PrintWriter;
                     '}';
         }
 
-   /* public void addFeedback(Feedback feedback) {
-        feedbacks.add(feedback);
-    }
-
-    public List<Feedback> getFeedbacks() {
-        return feedbacks;
-    }
-
-    public String getCourseId() {
-        return name; // Consider renaming to getName() for consistency
-    }
-
-    public static void writeCoursesToCSV(List<Course> courses, String filePath) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            for (Course course : courses) {
-                writer.println(course.getTitle() + "," + course.getDescription() + "," +
-                        course.getAuthor() + "," + course.getStartDate() + "," + course.getLocation());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    } */
 
 
         public static List<Course> searchAvailableCourses(List<Course> allCourses, String studentId) {
