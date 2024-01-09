@@ -130,6 +130,7 @@ public class CoursePage1 extends JFrame {
         topPanel.setBackground(new Color(129, 93, 171));
         topPanel.setLayout(new FlowLayout());
 
+
         JButton jButton10 = new JButton("MY COURSES");
         JButton jButton11 = new JButton("TOP COURSES");
         JButton jButton12 = new JButton("CALENDAR");

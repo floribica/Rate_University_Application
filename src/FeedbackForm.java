@@ -192,6 +192,52 @@ public class FeedbackForm extends JFrame {
         });
 
 
+        //create a submit button that take the feedback and rating and add it to the course
+
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //get the feedback
+                String feedbackText = feedback.getText();
+                //get the rating
+                int rating = 0;
+                if (star1.getForeground() == Color.YELLOW) {
+                    rating = 1;
+                } else if (star2.getForeground() == Color.YELLOW) {
+                    rating = 2;
+                } else if (star3.getForeground() == Color.YELLOW) {
+                    rating = 3;
+                } else if (star4.getForeground() == Color.YELLOW) {
+                    rating = 4;
+                } else if (star5.getForeground() == Color.YELLOW) {
+                    rating = 5;
+                }
+
+
+                //get the courseId from the second element of the string array in CourseDetails class by comparing
+
+
+
+
+
+
+                //create a feedback object
+                Feedback feedback = new Feedback(feedbackText, rating, user.getId(), courseId);
+                //add the feedback to the course
+                course.addFeedback(feedback);
+                //close the feedback form
+                dispose();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
         //add action listener for submit button
         
 
