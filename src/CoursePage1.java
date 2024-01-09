@@ -20,15 +20,23 @@ public class CoursePage1 extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel contentPane = new JPanel();
+        contentPane.setBackground(new Color(129, 93, 171));
         setContentPane(contentPane);
         setTitle("Course UPT");
         contentPane.setLayout(new BorderLayout());
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(3, 3, 10, 10)); // 3x3 grid with gaps
+        JLabel buttonLabel = new JLabel();
 
         //set size of main page
-        buttonPanel.setPreferredSize(new Dimension(1000, 600));
+        buttonLabel.setPreferredSize(new Dimension(1000, 600));
+
+        //set img background
+
+        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/course.jpeg"));
+
+        buttonLabel.setLayout(new GridLayout(3, 3, 10, 10)); // 3x3 grid with gaps
+
+
         //SET PAGE NAME
 
 
@@ -43,98 +51,73 @@ public class CoursePage1 extends JFrame {
         JButton jButton8 = new JButton();
         JButton jButton9 = new JButton();
 
-        jButton1.setBackground(new Color(135, 206, 250));
+
         jButton1.setText("<html><center>Artificial Intelligence</center></html>");
-        jButton1.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton1.setForeground(Color.WHITE);
+        jButton1.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton1.setForeground(new Color(171, 29, 29));
         jButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton1.setFocusPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setOpaque(true);
+        jButton1.setBackground(new Color(0, 0, 0, 0));
 
-        jButton2.setBackground(new Color(135, 206, 250));
+
         jButton2.setText("<html><center>Software Engineering</center></html>");
-        jButton2.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton2.setForeground(Color.WHITE);
+        jButton2.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton2.setForeground(new Color(171, 29, 29));
         jButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton2.setFocusPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setOpaque(true);
+        jButton2.setBackground(new Color(0, 0, 0, 0));
 
-        jButton3.setBackground(new Color(135, 206, 250));
         jButton3.setText("<html><center>Computer Networks</center></html>");
-        jButton3.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton3.setForeground(Color.WHITE);
+        jButton3.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton3.setForeground(new Color(171, 29, 29));
         jButton3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton3.setFocusPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setOpaque(true);
+        jButton3.setBackground(new Color(0, 0, 0, 0));
 
-        jButton4.setBackground(new Color(135, 206, 250));
         jButton4.setText("<html><center>Computer Graphics</center></html>");
-        jButton4.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton4.setForeground(Color.WHITE);
+        jButton4.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton4.setForeground(new Color(171, 29, 29));
         jButton4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton4.setFocusPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setOpaque(true);
+        jButton4.setBackground(new Color(0, 0, 0, 0));
 
-        jButton5.setBackground(new Color(135, 206, 250));
         jButton5.setText("<html><center>Computer Architecture</center></html>");
-        jButton5.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton5.setForeground(Color.WHITE);
+        jButton5.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton5.setForeground(new Color(171, 29, 29));
         jButton5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton5.setFocusPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setOpaque(true);
+        jButton5.setBackground(new Color(0, 0, 0, 0));
 
-        jButton6.setBackground(new Color(135, 206, 250));
         jButton6.setText("<html><center>Operating Systems</center></html>");
-        jButton6.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton6.setForeground(Color.WHITE);
+        jButton6.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton6.setForeground(new Color(171, 29, 29));
         jButton6.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton6.setFocusPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setOpaque(true);
+        jButton6.setBackground(new Color(0, 0, 0, 0));
 
-        jButton7.setBackground(new Color(135, 206, 250));
         jButton7.setText("<html><center>Database Systems</center></html>");
-        jButton7.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton7.setForeground(Color.WHITE);
+        jButton7.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton7.setForeground(new Color(171, 29, 29));
         jButton7.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton7.setFocusPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setOpaque(true);
+        jButton7.setBackground(new Color(0, 0, 0, 0));
 
-        jButton8.setBackground(new Color(135, 206, 250));
         jButton8.setText("<html><center>Computer Security</center></html>");
-        jButton8.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton8.setForeground(Color.WHITE);
+        jButton8.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton8.setForeground(new Color(171, 29, 29));
         jButton8.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton8.setFocusPainted(false);
-        jButton8.setContentAreaFilled(false);
-        jButton8.setOpaque(true);
+        jButton8.setBackground(new Color(0, 0, 0, 0));
 
-        jButton9.setBackground(new Color(135, 206, 250));
         jButton9.setText("<html><center>Computer Vision</center></html>");
-        jButton9.setFont(new Font("Arial", Font.BOLD, 30));
-        jButton9.setForeground(Color.WHITE);
+        jButton9.setFont(new Font("Hannotate TC", Font.BOLD, 30));
+        jButton9.setForeground(new Color(171, 29, 29));
         jButton9.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        jButton9.setFocusPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setOpaque(true);
+        jButton9.setBackground(new Color(0, 0, 0, 0));
 
-        buttonPanel.add(jButton1);
-        buttonPanel.add(jButton2);
-        buttonPanel.add(jButton3);
-        buttonPanel.add(jButton4);
-        buttonPanel.add(jButton5);
-        buttonPanel.add(jButton6);
-        buttonPanel.add(jButton7);
-        buttonPanel.add(jButton8);
-        buttonPanel.add(jButton9);
+        buttonLabel.add(jButton1);
+        buttonLabel.add(jButton2);
+        buttonLabel.add(jButton3);
+        buttonLabel.add(jButton4);
+        buttonLabel.add(jButton5);
+        buttonLabel.add(jButton6);
+        buttonLabel.add(jButton7);
+        buttonLabel.add(jButton8);
+        buttonLabel.add(jButton9);
 
-        contentPane.add(buttonPanel, BorderLayout.CENTER);
+        contentPane.add(buttonLabel, BorderLayout.CENTER);
 
         JLabel jLabel3 = new JLabel();
         //set user
@@ -144,6 +127,7 @@ public class CoursePage1 extends JFrame {
         contentPane.add(jLabel3, BorderLayout.SOUTH);
 
         JPanel topPanel = new JPanel();
+        topPanel.setBackground(new Color(129, 93, 171));
         topPanel.setLayout(new FlowLayout());
 
         JButton jButton10 = new JButton("MY COURSES");
