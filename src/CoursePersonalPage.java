@@ -69,8 +69,38 @@ public class CoursePersonalPage {
         returnToMainPage.setFont(new java.awt.Font("Hannotate SC", 0, 20));
         frame.add(returnToMainPage);
 
-        //add action listener to join course
 
+
+
+        //add action listener to join course, add the user to the course take user's username  and from course take course name,date and coruseId
+
+        joinCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+                JoinedCoursWritter joinedCourse = new JoinedCoursWritter();
+                try {
+                    joinedCourse.course(course, user);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                frame.dispose();
+            }
+        });
+
+
+        //add action listener to dorp course, remove the user from the course take user's user
+        //name  and from course take course name,date and coruseId
+        /*dropCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DroppedCourse droppedCourse = new DroppedCourse();
+                try {
+                    droppedCourse.course(course, user);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                frame.dispose();
+            }
+        });*/
 
         //add action listener to view course ratings
         viewCourseRatings.addActionListener(new java.awt.event.ActionListener() {

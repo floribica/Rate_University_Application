@@ -228,17 +228,9 @@ public class FeedbackForm extends JFrame {
             }
         });
 
+        //create a JoinCourse button that
 
 
-
-
-
-
-
-
-
-        //add action listener for submit button
-        
 
         //add action listener for exit button
         exitButton.addActionListener(new java.awt.event.ActionListener() {

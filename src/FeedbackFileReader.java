@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FeedbackFileReader {
 
-    private static final String FILE_PATH = "C:\\Users\\lenovo\\Desktop\\Rate_University_Application\\feedbacks.txt";
+    private static final String FILE_PATH = "C:\\Users\\klaud\\OneDrive\\Documents\\GitHub\\Rate_University_Application\\feedback.txt";
 
     public static void showDescription(String courseName) {
         StringBuilder comments = new StringBuilder();
