@@ -68,6 +68,12 @@ public class CoursePersonalPage {
         returnToMainPage.setFont(new java.awt.Font("Hannotate SC", 0, 20));
         frame.add(returnToMainPage);
 
+        //add action listener to rate course
+        rateCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FeedbackForm.leaveFeedback(user, course[1]);
+            }
+        });
 
         //add action listener to return to coursespage1 with the same user
         returnToMainPage.addActionListener(new java.awt.event.ActionListener() {
