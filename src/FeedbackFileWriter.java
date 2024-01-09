@@ -1,21 +1,21 @@
 package src;
+
+import login.User;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
-public class FeedbackFileWriter {
+public class FeedbackFileWriter{
+    public void writeInFile(String courseName, User user, String feedback, int rating) throws IOException {
+        //write in file
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Rate_University_Application/feedbacks.txt", true));
+        writer.write(courseName + "◊" + user.getUsername() + "◊" + feedback + "◊" + rating);
+        writer.newLine();
+        writer.close();
 
-    public static void writeFeedbacksToFile(List<Feedback> feedbacks) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\lenovo\\Desktop\\Rate_University_Application\\feedbacks.txt"))) {
-            for (Feedback feedback : feedbacks) {
-                writer.write(feedback.getDescription() + " " + feedback.getRating() + " "
-                        + feedback.getStudentId() + " " + feedback.getCourseId());
-                writer.newLine();
-            }
-            System.out.println("Feedbacks written to file successfully.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
+
     }
 }

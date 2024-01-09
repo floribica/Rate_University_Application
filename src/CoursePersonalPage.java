@@ -68,6 +68,23 @@ public class CoursePersonalPage {
         returnToMainPage.setFont(new java.awt.Font("Hannotate SC", 0, 20));
         frame.add(returnToMainPage);
 
+        //add action listener to join course
+
+
+        //add action listener to view course ratings
+        viewCourseRatings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FeedbackFileReader.showRate(course[1]);
+            }
+        });
+
+        //add action listener to view course comments
+        viewCourseComments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FeedbackFileReader.showDiscription(course[1]);
+            }
+        });
+
         //add action listener to rate course
         rateCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

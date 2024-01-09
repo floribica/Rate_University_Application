@@ -10,7 +10,7 @@ public class Feedback {
     private int rating;
 
 
-    public Feedback(String description, int rating, ) {
+    public Feedback(String description, int rating ) {
         this.description = description;
         this.rating = rating;
 
@@ -27,9 +27,6 @@ public class Feedback {
 
 
 
-    public String getStudentId() {
-        return studentId;
-    }
 
 
 
@@ -43,10 +40,6 @@ public class Feedback {
     }
 
 
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
 
 
 //    @Override

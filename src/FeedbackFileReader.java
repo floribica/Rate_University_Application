@@ -1,33 +1,47 @@
 package src;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class FeedbackFileReader {
 
-    public static List<Feedback> readFeedbacksFromFile() {
-        List<Feedback> feedbacks = new ArrayList<>();
+    public static void showDiscription(String courseName) {
+        String discription[] = new String[2];
         try {
-            File file = new File("C:\\Users\\lenovo\\Desktop\\Rate_University_Application\\feedbacks.txt");
-            Scanner input = new Scanner(file);
-            while (input.hasNextLine()) {
+            java.io.File file = new java.io.File("Rate_University_Application/feedback.txt");
+            java.util.Scanner input = new java.util.Scanner(file);
+            while (input.hasNext()) {
                 String line = input.nextLine();
-                String[] feedbackArray = line.split(" ", 4); // Assuming the first three elements represent the feedback attributes
-                if (feedbackArray.length >= 4) {
-                    // Assuming appropriate constructor exists in the Feedback class
-                    Feedback feedback = new Feedback(feedbackArray[0], Integer.parseInt(feedbackArray[1]), feedbackArray[2], feedbackArray[3]);
-                    feedbacks.add(feedback);
-                } else {
-                    System.err.println("Error: Incomplete feedback data for line: " + line);
+                String[] courseArray = line.split("◊");
+                if (courseArray[0].equals(courseName)) {
+                    discription[0] = courseArray[1];
+                    discription[1] = courseArray[2];
                 }
             }
             input.close();
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        return feedbacks;
+        //call the form method to show the discription
+
     }
+
+    public static void showRate(String courseName) {
+        String discription[] = new String[2];
+        try {
+            java.io.File file = new java.io.File("Rate_University_Application/feedback.txt");
+            java.util.Scanner input = new java.util.Scanner(file);
+            while (input.hasNext()) {
+                String line = input.nextLine();
+                String[] courseArray = line.split("◊");
+                if (courseArray[0].equals(courseName)) {
+                    discription[0] = courseArray[1];
+                    discription[1] = courseArray[3];
+                }
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        //call the form method to show the discription()
+
+    }
+
 }
