@@ -5,3 +5,12 @@ CSE310◊fabian1◊enjoyed it◊5
 CSE310◊fabian1◊i love it◊5
 CSE310◊fabian1◊not that good◊5
 CSE310◊fabian1◊needs to be improved◊5
+CSE352◊fbica5◊It's okay◊3
+CSE308◊fbica5◊good◊2
+CSE335◊fbica5◊very well◊5
+CSE340◊fbica5◊bed◊1
+CSE306◊fbica5◊bad◊1
+CSE306◊fbica5◊fine◊4
+CSE305◊fbica5◊I don't like◊1
+CSE343◊fbica5◊It's perfect◊5
+CSE352◊fbica5◊ok◊3

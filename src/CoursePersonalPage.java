@@ -53,7 +53,12 @@ public class CoursePersonalPage {
             //add action listener to drop course
             dropCourse.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                    DropCourse.dropCourse(user, course[1]);
+
+                    try {
+                        DroppedCourse.dropCourse(user, course[1]);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     JOptionPane.showMessageDialog(null, "Course dropped successfully");
                     returnToMainPageActionPerformed(evt, user);
                 }

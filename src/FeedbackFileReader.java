@@ -1,6 +1,7 @@
 package src;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +64,37 @@ public class FeedbackFileReader {
             JOptionPane.showMessageDialog(null, "No ratings available for this course.");
         }
     }
+
+
+
+    public static ArrayList<String> getAllFeedback(){
+
+        //create an array list that will hold all the feedbacks
+        ArrayList<String> feedbacks = new ArrayList<>();
+
+        //read the feedbacks from the file
+
+        try {
+            java.io.File file = new java.io.File("Rate_University_Application/file/feedbacks.txt");
+            java.util.Scanner input = new java.util.Scanner(file);
+            while (input.hasNext()) {
+                String line = input.nextLine();
+                String[] courseArray = line.split("◊");
+                String feedback = courseArray[0] + "," + courseArray[3];
+
+                feedbacks.add(feedback);
+
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+        return feedbacks;
+    }
+
+
 
 
 

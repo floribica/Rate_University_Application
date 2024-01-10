@@ -20,7 +20,7 @@ public class CoursePage1 extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel contentPane = new JPanel();
-        contentPane.setBackground(new Color(129, 93, 171));
+        contentPane.setBackground(new Color(218, 235, 249));
         setContentPane(contentPane);
         setTitle("Course UPT");
         contentPane.setLayout(new BorderLayout());
@@ -32,12 +32,11 @@ public class CoursePage1 extends JFrame {
 
         //set img background
 
-        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/courses.jpeg"));
+        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/course.jpeg"));
 
         buttonLabel.setLayout(new GridLayout(3, 3, 10, 10)); // 3x3 grid with gaps
 
 
-        //SET PAGE NAME
 
 
 
@@ -127,7 +126,7 @@ public class CoursePage1 extends JFrame {
         contentPane.add(jLabel3, BorderLayout.SOUTH);
 
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(new Color(129, 93, 171));
+        topPanel.setBackground(new Color(218, 235, 249));
         topPanel.setLayout(new FlowLayout());
 
 
@@ -164,6 +163,20 @@ public class CoursePage1 extends JFrame {
         jButton7.addActionListener(evt -> jButton7ActionPerformed(evt,user));
         jButton8.addActionListener(evt -> jButton8ActionPerformed(evt,user));
         jButton9.addActionListener(evt -> jButton9ActionPerformed(evt,user));
+
+        //set action listener for the buttons11
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt, user);
+            }
+
+            private void jButton11ActionPerformed(ActionEvent evt, User user) {
+
+                TopRateForm topRateForm = new TopRateForm();
+                topRateForm.rateCourse();
+
+            }
+        });
 
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
