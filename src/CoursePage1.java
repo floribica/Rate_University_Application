@@ -4,6 +4,8 @@ import login.User;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.List;
+
 
 public class CoursePage1 extends JFrame {
 
@@ -20,7 +22,7 @@ public class CoursePage1 extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         JPanel contentPane = new JPanel();
-        contentPane.setBackground(new Color(218, 235, 249));
+        contentPane.setBackground(new Color(129, 93, 171));
         setContentPane(contentPane);
         setTitle("Course UPT");
         contentPane.setLayout(new BorderLayout());
@@ -32,11 +34,12 @@ public class CoursePage1 extends JFrame {
 
         //set img background
 
-        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/course.jpeg"));
+        buttonLabel.setIcon(new ImageIcon("image/courses.jpeg"));
 
         buttonLabel.setLayout(new GridLayout(3, 3, 10, 10)); // 3x3 grid with gaps
 
 
+        //SET PAGE NAME
 
 
 
@@ -116,6 +119,8 @@ public class CoursePage1 extends JFrame {
         buttonLabel.add(jButton8);
         buttonLabel.add(jButton9);
 
+
+
         contentPane.add(buttonLabel, BorderLayout.CENTER);
 
         JLabel jLabel3 = new JLabel();
@@ -126,7 +131,7 @@ public class CoursePage1 extends JFrame {
         contentPane.add(jLabel3, BorderLayout.SOUTH);
 
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(new Color(218, 235, 249));
+        topPanel.setBackground(new Color(129, 93, 171));
         topPanel.setLayout(new FlowLayout());
 
 
@@ -164,19 +169,7 @@ public class CoursePage1 extends JFrame {
         jButton8.addActionListener(evt -> jButton8ActionPerformed(evt,user));
         jButton9.addActionListener(evt -> jButton9ActionPerformed(evt,user));
 
-        //set action listener for the buttons11
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt, user);
-            }
-
-            private void jButton11ActionPerformed(ActionEvent evt, User user) {
-
-                TopRateForm topRateForm = new TopRateForm();
-                topRateForm.rateCourse();
-
-            }
-        });
+        jButton10.addActionListener(evt -> jButton10ActionPerformed(evt, user));
 
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,6 +262,50 @@ public class CoursePage1 extends JFrame {
         CoursePersonalPage.course(course.course9,user);
         this.dispose();
     }
+
+
+    private void jButton10ActionPerformed(ActionEvent evt, User user) {
+        // Open a frame to display joined courses
+        displayJoinedCourses(user);
+    }
+
+    private void displayJoinedCourses(User user) {
+        JFrame joinedCoursesFrame = new JFrame("Joined Courses");
+        joinedCoursesFrame.setSize(800, 600);
+        joinedCoursesFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        joinedCoursesFrame.setLayout(new GridLayout(3, 3, 10, 10));
+
+        // Fetch the joined courses for the user
+        List<String[]> joinedCourses = JoinedCourseReader.getJoinedCourses(user);
+
+        // Display the joined courses in buttons
+        for (String[] courseInfo : joinedCourses) {
+            JButton courseButton = new JButton("<html><center>" + courseInfo[1] + "</center></html>");
+            courseButton.setFont(new Font("Hannotate TC", Font.BOLD, 20));
+            courseButton.setForeground(new Color(40, 70, 31));
+            courseButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+            courseButton.setBackground(new Color(0, 0, 0, 0));
+
+            // Add an action listener to handle the click on a joined course
+            courseButton.addActionListener(e -> openJoinedCoursePage(courseInfo, user));
+
+            joinedCoursesFrame.add(courseButton);
+        }
+
+        // Make the frame visible
+        joinedCoursesFrame.setVisible(true);
+    }
+
+    private void openJoinedCoursePage(String[] courseInfo, User user) {
+        // Open a frame for the selected joined course
+        CoursePersonalPage.course(courseInfo, user);
+        // Close the current CoursePage1 frame
+        this.dispose();
+    }
+
+
+
+
 
 
     public static void pg1() {

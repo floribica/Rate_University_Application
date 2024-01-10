@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class CoursePersonalPage {
 
+
     //open frame for each course
     public static void course(String [] course, User user) {
 
