@@ -1,8 +1,7 @@
-package src;
+package course;
 
 import login.User;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,7 +10,7 @@ import java.io.File;
 public class JoinedCourseReader {
     //create a method to read courses.txt
 
-    private static final String FILE_PATH = "file/courses.txt";
+    private static final String FILE_PATH = "Rate_University_Application/file/courses.txt";
 
     public static Boolean checkuserExist(User user, String courseCode) {
         boolean userExist = false;

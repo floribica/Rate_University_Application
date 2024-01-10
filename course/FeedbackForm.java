@@ -1,9 +1,8 @@
-package src;
+package course;
 
 import login.User;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 
 public class FeedbackForm extends JFrame {
 

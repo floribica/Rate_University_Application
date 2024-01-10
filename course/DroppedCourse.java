@@ -1,4 +1,4 @@
-package src;
+package course;
 
 import login.User;
 
@@ -11,7 +11,7 @@ public class DroppedCourse {
     //create a method to dropped course
     public static void dropCourse(User user, String courseCode) throws IOException {
         //read courses.txt
-        java.io.File file = new java.io.File("file/courses.txt");
+        java.io.File file = new java.io.File("Rate_University_Application/file/courses.txt");
         java.util.Scanner input = new java.util.Scanner(file);
         //create a string to store all the courses
         String courses = "";
@@ -26,7 +26,7 @@ public class DroppedCourse {
 
         input.close();
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter("file/courses.txt"));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Rate_University_Application/file/courses.txt"));
         writer.write(courses);
         writer.close();
 

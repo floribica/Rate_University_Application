@@ -1,10 +1,10 @@
-package src;
+package course;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import static src.TopRateCourse.getTopRateCourse;
+import static course.TopRateCourse.getTopRateCourse;
 
 public class TopRateForm extends JFrame {
 

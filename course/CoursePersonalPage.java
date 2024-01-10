@@ -1,4 +1,4 @@
-package src;
+package course;
 
 import login.User;
 

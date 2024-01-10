@@ -1,5 +1,5 @@
 
-package src;
+package course;
 
 import java.io.FileWriter;
 import java.io.IOException;

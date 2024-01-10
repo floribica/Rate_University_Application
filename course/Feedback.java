@@ -1,9 +1,4 @@
-package src;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+package course;
 
 public class Feedback {
     private String description;
