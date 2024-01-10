@@ -32,7 +32,7 @@ public class CoursePage1 extends JFrame {
 
         //set img background
 
-        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/course.jpeg"));
+        buttonLabel.setIcon(new ImageIcon("Rate_University_Application/image/courses.jpeg"));
 
         buttonLabel.setLayout(new GridLayout(3, 3, 10, 10)); // 3x3 grid with gaps
 
@@ -54,56 +54,56 @@ public class CoursePage1 extends JFrame {
 
         jButton1.setText("<html><center>Artificial Intelligence</center></html>");
         jButton1.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton1.setForeground(new Color(171, 29, 29));
+        jButton1.setForeground(new Color(40, 70, 31));
         jButton1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton1.setBackground(new Color(0, 0, 0, 0));
 
 
         jButton2.setText("<html><center>Software Engineering</center></html>");
         jButton2.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton2.setForeground(new Color(171, 29, 29));
+        jButton2.setForeground(new Color(40, 70, 31));
         jButton2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton2.setBackground(new Color(0, 0, 0, 0));
 
         jButton3.setText("<html><center>Computer Networks</center></html>");
         jButton3.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton3.setForeground(new Color(171, 29, 29));
+        jButton3.setForeground(new Color(40, 70, 31));
         jButton3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton3.setBackground(new Color(0, 0, 0, 0));
 
         jButton4.setText("<html><center>Computer Graphics</center></html>");
         jButton4.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton4.setForeground(new Color(171, 29, 29));
+        jButton4.setForeground(new Color(40, 70, 31));
         jButton4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton4.setBackground(new Color(0, 0, 0, 0));
 
         jButton5.setText("<html><center>Computer Architecture</center></html>");
         jButton5.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton5.setForeground(new Color(171, 29, 29));
+        jButton5.setForeground(new Color(40, 70, 31));
         jButton5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton5.setBackground(new Color(0, 0, 0, 0));
 
         jButton6.setText("<html><center>Operating Systems</center></html>");
         jButton6.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton6.setForeground(new Color(171, 29, 29));
+        jButton6.setForeground(new Color(40, 70, 31));
         jButton6.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton6.setBackground(new Color(0, 0, 0, 0));
 
         jButton7.setText("<html><center>Database Systems</center></html>");
         jButton7.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton7.setForeground(new Color(171, 29, 29));
+        jButton7.setForeground(new Color(40, 70, 31));
         jButton7.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton7.setBackground(new Color(0, 0, 0, 0));
 
         jButton8.setText("<html><center>Computer Security</center></html>");
         jButton8.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton8.setForeground(new Color(171, 29, 29));
+        jButton8.setForeground(new Color(40, 70, 31));
         jButton8.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton8.setBackground(new Color(0, 0, 0, 0));
 
         jButton9.setText("<html><center>Computer Vision</center></html>");
         jButton9.setFont(new Font("Hannotate TC", Font.BOLD, 30));
-        jButton9.setForeground(new Color(171, 29, 29));
+        jButton9.setForeground(new Color(40, 70, 31));
         jButton9.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         jButton9.setBackground(new Color(0, 0, 0, 0));
 

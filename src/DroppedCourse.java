@@ -7,13 +7,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class DroppedCourse {
+
     //create a method to dropped course
-    public static void course(String [] course, User user) throws IOException {
-        //write in file
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\klaud\\OneDrive\\Documents\\GitHub\\Rate_University_Application\\dropped.txt", true));
-        writer.write(course[0] + course[1]+ course[2]+ "◊" + user.getUsername());
-        writer.newLine();
+    public static void dropCourse(User user, String courseCode) throws IOException {
+        //read courses.txt
+        java.io.File file = new java.io.File("Rate_University_Application/file/courses.txt");
+        java.util.Scanner input = new java.util.Scanner(file);
+        //create a string to store all the courses
+        String courses = "";
+        while (input.hasNext()) {
+            String line = input.nextLine();
+            String[] courseArray = line.split("◊");
+            if (courseArray[0].equals(user.getUsername()) && courseArray[2].equals(courseCode)) {
+                continue;
+            }
+            courses += line + "\n";
+        }
+
+        input.close();
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Rate_University_Application/file/courses.txt"));
+        writer.write(courses);
         writer.close();
+
+
+
     }
 
 
