@@ -56,12 +56,14 @@ public class FeedbackFileReader {
             ex.printStackTrace();
         }
 
-        // Call the form method to show the ratings
-        if (!ratingsList.isEmpty()) RatingDisplayForm.showRating(courseName, String.valueOf(ratingsList));
-        else {
+        if (!ratingsList.isEmpty()) {
+            // Call the form method to show the ratings
+            RatingDisplayForm.showRating(courseName, String.join("\n", ratingsList));
+        } else {
             JOptionPane.showMessageDialog(null, "No ratings available for this course.");
         }
     }
+
 
 
 

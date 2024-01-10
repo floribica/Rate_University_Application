@@ -31,8 +31,19 @@ public class RatingDisplayForm extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    public static void showRating(String courseName, String rating) {
-        RatingDisplayForm ratingDisplayForm = new RatingDisplayForm(courseName, rating);
-        ratingDisplayForm.setVisible(true);
+    public static void showRating(String courseName, String ratings) {
+        JFrame frame = new JFrame();
+        frame.setTitle(courseName + " Ratings");
+        frame.setSize(400, 300);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setLayout(new BorderLayout());
+
+        JTextArea ratingsTextArea = new JTextArea(ratings);
+        ratingsTextArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(ratingsTextArea);
+        frame.add(scrollPane, BorderLayout.CENTER);
     }
 }
