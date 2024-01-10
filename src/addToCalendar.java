@@ -12,7 +12,7 @@ import java.util.Date;
 public class addToCalendar {
 
 
-    public static void main(String[] args) {
+    public static void generate() {
         generateCalendarFile();
     }
 

@@ -4,6 +4,7 @@ import login.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class CoursePersonalPage {
 
@@ -39,11 +40,43 @@ public class CoursePersonalPage {
         courseDescription.setFont(new java.awt.Font("Hannotate SC", 0, 20));
         frame.add(courseDescription);
 
-        //add button to join course
-        JButton joinCourse = new JButton("Join Course");
-        joinCourse.setBounds(10, 500, 200, 50);
-        joinCourse.setFont(new java.awt.Font("Hannotate SC", 0, 20));
-        frame.add(joinCourse);
+        ;
+
+        //add button to join course if user is not already joined and drop course if user is already joined
+        JoinedCourseReader joinedCourseReader = new JoinedCourseReader();
+        if (joinedCourseReader.checkuserExist(user, course[1])) {
+            JButton dropCourse = new JButton("Drop Course");
+            dropCourse.setBounds(10, 500, 200, 50);
+            dropCourse.setFont(new java.awt.Font("Hannotate SC", 0, 20));
+            frame.add(dropCourse);
+
+            //add action listener to drop course
+            dropCourse.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                    DropCourse.dropCourse(user, course[1]);
+                    JOptionPane.showMessageDialog(null, "Course dropped successfully");
+                    returnToMainPageActionPerformed(evt, user);
+                }
+            });
+        } else {
+            JButton joinCourse = new JButton("Join Course");
+            joinCourse.setBounds(10, 500, 200, 50);
+            joinCourse.setFont(new java.awt.Font("Hannotate SC", 0, 20));
+            frame.add(joinCourse);
+
+            //add action listener to join course
+            joinCourse.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    try {
+                        JoinedCoursWritter.course(course, user);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    JOptionPane.showMessageDialog(null, "Course joined successfully");
+                    returnToMainPageActionPerformed(evt, user);
+                }
+            });
+        }
 
         //add button to rate course
         JButton rateCourse = new JButton("Rate Course");
@@ -70,37 +103,6 @@ public class CoursePersonalPage {
         frame.add(returnToMainPage);
 
 
-
-
-        //add action listener to join course, add the user to the course take user's username  and from course take course name,date and coruseId
-
-        joinCourse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-                JoinedCoursWritter joinedCourse = new JoinedCoursWritter();
-                try {
-                    joinedCourse.course(course, user);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                frame.dispose();
-            }
-        });
-
-
-        //add action listener to dorp course, remove the user from the course take user's user
-        //name  and from course take course name,date and coruseId
-        /*dropCourse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DroppedCourse droppedCourse = new DroppedCourse();
-                try {
-                    droppedCourse.course(course, user);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                frame.dispose();
-            }
-        });*/
 
         //add action listener to view course ratings
         viewCourseRatings.addActionListener(new java.awt.event.ActionListener() {

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FeedbackFileReader {
 
-    private static final String FILE_PATH = "C:\\Users\\klaud\\OneDrive\\Documents\\GitHub\\Rate_University_Application\\feedback.txt";
+    private static final String FILE_PATH = "Rate_University_Application/file/feedbacks.txt";
 
     public static void showDescription(String courseName) {
         StringBuilder comments = new StringBuilder();
@@ -36,7 +36,7 @@ public class FeedbackFileReader {
     public static void showRate(String courseName) {
         List<String> ratingsList = new ArrayList<>();
         try {
-            java.io.File file = new java.io.File("C:\\Users\\lenovo\\Desktop\\Rate_University_Application\\feedbacks.txt");
+            java.io.File file = new java.io.File("Rate_University_Application/file/feedbacks.txt");
             java.util.Scanner input = new java.util.Scanner(file);
             while (input.hasNext()) {
                 String line = input.nextLine();

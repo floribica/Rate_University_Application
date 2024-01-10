@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class UserFileWriter {
     public static void writeUserToFile(User user) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\klaud\\OneDrive\\Documents\\GitHub\\Rate_University_Application\\login\\users.txt", true));
+        BufferedWriter writer = new BufferedWriter(new FileWriter("Rate_University_Application/file/users.txt", true));
         writer.write(user.getFirstName() + " " + user.getLastName() + " " + user.getUsername() + " " + user.getPassword() + " " + user.getId());
         writer.newLine();
         writer.close();
