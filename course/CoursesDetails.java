@@ -27,7 +27,17 @@ public class CoursesDetails {
 
     public String[][] courses = {course1, course2, course3, course4, course5, course6, course7, course8, course9};
 
-//create this method to get course details
+
+    //create a method to return courses array search by course name
+
+    public String[] searchCourse(String courseName) {
+        for (int i = 0; i < courses.length; i++) {
+            if (courses[i][0].equalsIgnoreCase(courseName)) {
+                return courses[i];
+            }
+        }
+        return null;
+    }
 
 
 

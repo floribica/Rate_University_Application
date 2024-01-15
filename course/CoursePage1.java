@@ -155,6 +155,22 @@ public class CoursePage1 extends JFrame {
 
         JLabel jLabel2 = new JLabel();
         contentPane.add(jLabel2, BorderLayout.WEST);
+        //add search bar
+        JTextField searchField = new JTextField();
+        searchField.setPreferredSize(new Dimension(200, 30));
+        searchField.setFont(new Font("Hannotate TC", Font.BOLD, 20));
+        searchField.setForeground(new Color(40, 70, 31));
+        searchField.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        searchField.setBackground(new Color(0, 0, 0, 0));
+        topPanel.add(searchField);
+
+        //add search button
+        JButton searchButton = new JButton("SEARCH");
+        searchButton.setFont(new Font("Hannotate TC", Font.BOLD, 20));
+        searchButton.setForeground(new Color(40, 70, 31));
+        searchButton.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        searchButton.setBackground(new Color(0, 0, 0, 0));
+        topPanel.add(searchButton);
 
         JLabel jLabel1 = new JLabel();
         contentPane.add(jLabel1, BorderLayout.EAST);
@@ -211,6 +227,26 @@ public class CoursePage1 extends JFrame {
                 dispose();
             }
         });
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt, user);
+            }
+
+            private void searchButtonActionPerformed(ActionEvent evt, User user) {
+                String textSearch = searchField.getText();
+                CoursesDetails coursesDetails = new CoursesDetails();
+
+                String[] searchResult = coursesDetails.searchCourse(textSearch);
+
+                if (searchResult != null) {
+                    CoursePersonalPage.course(searchResult, user);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Course not found!");
+                }
+
+            }
+        });
 
 
 
@@ -218,6 +254,11 @@ public class CoursePage1 extends JFrame {
         pack();
         setLocationRelativeTo(null);
     }
+
+
+
+
+
 
     //set an action listener for the button1
     private void jButton1ActionPerformed(ActionEvent evt, User user) {
