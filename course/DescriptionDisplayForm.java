@@ -9,7 +9,7 @@ public class DescriptionDisplayForm extends JFrame {
         initComponents(courseName, description);
     }
 
-    private void initComponents(String courseName, String description) {
+    public void initComponents(String courseName, String description) {
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         JPanel descriptionPanel = new JPanel();
