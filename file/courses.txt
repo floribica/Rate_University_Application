@@ -1,2 +1,13 @@
-fbica◊Artificial Intelligence◊CSE352◊10/02/2024-10/05/2024
 fbica◊Software Engineering◊CSE308◊05/01/2024-10/02/2024
+kkociu◊Computer Security◊CSE343◊01/10/2024-10/12/2024
+kkociu◊Computer Networks◊CSE310◊21/02/2024-15/05/2024
+fabian1◊Artificial Intelligence◊CSE352◊10/02/2024-10/05/2024
+fabian1◊Software Engineering◊CSE308◊05/01/2024-10/02/2024
+fabian1◊Computer Networks◊CSE310◊21/02/2024-15/05/2024
+fabian1◊Computer Architecture◊CSE340◊12/09/2024-01/11/2024
+fabian1◊Database Systems◊CSE305◊10/02/2024-10/05/2024
+fabian1◊Computer Security◊CSE343◊01/10/2024-10/12/2024
+fbica◊Database Systems◊CSE305◊10/02/2024-10/05/2024
+fbica◊Artificial Intelligence◊CSE352◊10/02/2024-10/05/2024
+fbica◊Computer Architecture◊CSE340◊12/09/2024-01/11/2024
+fbica◊Operating Systems◊CSE306◊30/07/2024-01/09/2024

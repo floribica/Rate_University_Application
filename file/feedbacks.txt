@@ -1,16 +1,20 @@
-CSE343◊fabian1◊not that good◊3
-CSE310◊fabian1◊good◊4
-CSE310◊fabian1◊gooooddddd◊4
-CSE310◊fabian1◊enjoyed it◊5
-CSE310◊fabian1◊i love it◊5
-CSE310◊fabian1◊not that good◊5
-CSE310◊fabian1◊needs to be improved◊5
-CSE352◊fbica5◊It's okay◊3
-CSE308◊fbica5◊good◊2
-CSE335◊fbica5◊very well◊5
-CSE340◊fbica5◊bed◊1
-CSE306◊fbica5◊bad◊1
-CSE306◊fbica5◊fine◊4
-CSE305◊fbica5◊I don't like◊1
-CSE343◊fbica5◊It's perfect◊5
-CSE352◊fbica5◊ok◊3
+CSE352◊fbica◊nice◊3◊2024-01-16
+CSE308◊fbica◊super nice◊4◊2024-01-16
+CSE310◊fbica◊bed◊1◊2024-01-16
+CSE335◊fbica◊super◊5◊2024-01-16
+CSE306◊fbica◊i love it◊5◊2024-01-16
+CSE305◊fbica◊need's to improvement◊2◊2024-01-16
+CSE343◊fbica◊ska me mir◊5◊2024-01-16
+CSE310◊kkociu◊useful◊5◊2024-01-16
+CSE308◊kkociu◊good◊5◊2024-01-16
+CSE352◊kkociu◊useful◊2◊2024-01-16
+CSE335◊kkociu◊bad choice◊1◊2024-01-16
+CSE306◊kkociu◊old but gold◊2◊2024-01-16
+CSE343◊kkociu◊exellent choice◊5◊2024-01-16
+CSE305◊kkociu◊underrated◊2◊2024-01-16
+CSE352◊fabian1◊great course◊5◊2024-01-16
+CSE308◊fabian1◊great course. totally recommend it◊5◊2024-01-16
+CSE305◊fabian1◊◊5◊2024-01-16
+CSE343◊fabian1◊i enjoyed it◊4◊2024-01-16
+CSE335◊nojzilokukoku◊kmnp otr me zemer◊5◊2024-01-16
+CSE352◊etusha◊It's very good◊5◊2024-01-16

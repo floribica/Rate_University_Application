@@ -54,7 +54,7 @@ public class FeedbackForm extends JFrame {
         feedback.setPreferredSize(new Dimension(400, 200));
         feedback.setLineWrap(true);
         feedback.setWrapStyleWord(true);
-        feedback.setFont(new Font("Times New Roman", Font.PLAIN, 16));
+        feedback.setFont(new Font("Hannotate TC", Font.PLAIN, 20));
         feedback.setAlignmentX(Component.CENTER_ALIGNMENT);
         feedbackFormPanel.add(feedback);
 

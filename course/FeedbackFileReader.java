@@ -1,5 +1,7 @@
 package course;
 
+import login.User;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +98,25 @@ public class FeedbackFileReader {
 
 
 
+    //control if user have already left a feedback for a course
+    public static boolean check(User user, String courseCode){
+        boolean check = false;
+        try {
+            java.io.File file = new java.io.File("Rate_University_Application/file/feedbacks.txt");
+            java.util.Scanner input = new java.util.Scanner(file);
+            while (input.hasNext()) {
+                String line = input.nextLine();
+                String[] courseArray = line.split("◊");
+                if (courseArray[0].equals(courseCode) && courseArray[1].equals(user.getUsername())) {
+                    check = true;
+                }
+            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return check;
+    }
 
 
 

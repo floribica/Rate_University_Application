@@ -5,49 +5,64 @@ import java.util.ArrayList;
 public class TopRateCourse {
 
     public static ArrayList<String> getTopRateCourse() {
-        FeedbackFileReader feedbackFileReader = new FeedbackFileReader();
-        ArrayList<String> courseNames = feedbackFileReader.getAllFeedback();
-        ArrayList<String> topRateCourseNames = new ArrayList<>();
 
-        //calculet average rating for each course split by","
-        for (String courseName : courseNames) {
-            String[] courseArray = courseName.split(",");
-            String courseName1 = courseArray[0];
-            int sum = 0;
-            int count = 0;
-            for (String courseName2 : courseNames) {
-                String[] courseArray2 = courseName2.split(",");
-                String courseName3 = courseArray2[0];
-                if (courseName1.equals(courseName3)) {
-                    sum += Integer.parseInt(courseArray2[1]);
-                    count++;
-                }
+        //create an array list that will hold all the feedbacks
+        ArrayList<String> feedbacks = new ArrayList<>();
+
+        //read the feedbacks from the file
+
+        try {
+            java.io.File file = new java.io.File("Rate_University_Application/file/feedbacks.txt");
+            java.util.Scanner input = new java.util.Scanner(file);
+            while (input.hasNext()) {
+                String line = input.nextLine();
+                String[] courseArray = line.split("◊");
+                String feedback = courseArray[0] + "," + courseArray[3];
+
+                feedbacks.add(feedback);
+
             }
-            double average = (double) sum / count;
-            if (average >= 4) {
-                topRateCourseNames.add(courseName1 + " => " + average);
-            }
+            input.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
-        //sort the topRateCourseNames by average rating
-        for (int i = 0; i < topRateCourseNames.size(); i++) {
-            for (int j = i + 1; j < topRateCourseNames.size(); j++) {
-                String[] courseArray1 = topRateCourseNames.get(i).split("=>");
-                String[] courseArray2 = topRateCourseNames.get(j).split("=>");
-                double average1 = Double.parseDouble(courseArray1[1]);
-                double average2 = Double.parseDouble(courseArray2[1]);
-                if (average1 < average2) {
-                    String temp = topRateCourseNames.get(i);
-                    topRateCourseNames.set(i, topRateCourseNames.get(j));
-                    topRateCourseNames.set(j, temp);
-                }
+        return feedbacks;
+
+    }
+
+    //sort the feedbacks
+    public static ArrayList<String> sortFeedbacks(ArrayList<String> feedbacks) {
+        ArrayList<String> sortedFeedbacks = new ArrayList<>();
+        for (int i = 0; i < feedbacks.size(); i++) {
+            String[] feedbackArray = feedbacks.get(i).split(",");
+            int rate = Integer.parseInt(feedbackArray[1]);
+            if (rate >= 4) {
+                sortedFeedbacks.add(feedbacks.get(i));
             }
         }
+        return sortedFeedbacks;
+    }
 
+    //get the top 5 rate courses in format courseCode => rate
+    public static ArrayList<String> getTop5RateCourse() {
+        ArrayList<String> top5RateCourse = new ArrayList<>();
+        ArrayList<String> sortedFeedbacks = sortFeedbacks(getTopRateCourse());
+        if (sortedFeedbacks.size() >= 5) {
+            for (int i = 0; i < 5; i++) {
+                String[] feedbackArray = sortedFeedbacks.get(i).split(",");
+                top5RateCourse.add(feedbackArray[0] + " => " + feedbackArray[1]);
+            }
 
-
-        return topRateCourseNames;
-
-
+            return top5RateCourse;
+        } else if (sortedFeedbacks.size() > 0 && sortedFeedbacks.size() < 5) {
+            for (int i = 0; i < sortedFeedbacks.size(); i++) {
+                String[] feedbackArray = sortedFeedbacks.get(i).split(",");
+                top5RateCourse.add(feedbackArray[0] + " => " + feedbackArray[1]);
+            }
+            return top5RateCourse;
+        } else {
+            return null;
+        }
     }
 }

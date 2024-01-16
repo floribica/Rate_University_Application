@@ -126,7 +126,12 @@ public class CoursePersonalPage {
         //add action listener to rate course
         rateCourse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FeedbackForm.leaveFeedback(user, course[1]);
+                if(FeedbackFileReader.check(user, course[1])){
+                    JOptionPane.showMessageDialog(null, "You have already rated this course");
+                }
+                else{
+                    FeedbackForm.leaveFeedback(user, course[1]);
+                }
             }
         });
 

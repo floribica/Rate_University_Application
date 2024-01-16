@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import static course.TopRateCourse.getTop5RateCourse;
 import static course.TopRateCourse.getTopRateCourse;
 
 public class TopRateForm extends JFrame {
@@ -39,7 +40,7 @@ public class TopRateForm extends JFrame {
     public void rateCourse() {
         SwingUtilities.invokeLater(() -> {
             TopRateForm topRateForm = new TopRateForm();
-            ArrayList<String> courseNames = getTopRateCourse();
+            ArrayList<String> courseNames = getTop5RateCourse();
 
 
             if (courseNames != null && !courseNames.isEmpty()) {
