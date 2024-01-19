@@ -1,1 +1,1 @@
-[Link to PowerPoint Presentation]([https://raw.githubusercontent.com/floribica/Rate_University_Application/main/Application_Presentation.pptx](https://github.com/floribica/Rate_University_Application/blob/main/Application_Presentation.pptx)https://github.com/floribica/Rate_University_Application/blob/main/Application_Presentation.pptx)
+[Link to PowerPoint Presentation](https://raw.githubusercontent.com/floribica/Rate_University_Application/main/Application_Presentation.pptx)
